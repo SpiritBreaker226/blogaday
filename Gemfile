@@ -67,6 +67,15 @@ group :development, :test do
 	# genorate fake data for testing
 	gem 'faker'
 
+	# testing framework to do unit testing
+	gem 'rspec-rails'
+
+	# for feature testing with Rspece
+	gem 'capybara'
+
+	# create fake objects to test
+	gem 'factory_girl_rails'
+
 	# has four gems that will install
 	# pry-rails - It's an amazing replacement for bland 'ol IRB.
 	# awesome_print - It's a pretty printer that makes objects, methods, classes, and expressions you print in the repl look nice.
