@@ -1,0 +1,31 @@
+= Blog a Day
+
+Blog a Day is a challenge to blog once a day for 30 days, since it is said that if you do something for 30 days you will make it into a habit. By blogging once a day, you will get those creative juices going and challenge yourself into thinking in new a creative ways.
+In order to avoid having small nonsense postings you must enter a minimum of 250 characters that is roughly a paragraph. This web application will send you an email once a day reminding you to blog, which hopefully you will. 
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
