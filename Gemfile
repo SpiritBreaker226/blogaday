@@ -75,6 +75,9 @@ group :development, :test do
 	# create fake objects to test
 	gem 'factory_girl_rails'
 
+	# cleans the database after each test
+	gem 'database_cleaner', '~> 1.4.1'
+
 	# has four gems that will install
 	# pry-rails - It's an amazing replacement for bland 'ol IRB.
 	# awesome_print - It's a pretty printer that makes objects, methods, classes, and expressions you print in the repl look nice.
