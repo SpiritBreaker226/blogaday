@@ -239,7 +239,6 @@ DEPENDENCIES
   best_errors
   capybara
   coderay
-  coffee-rails (~> 4.1.0)
   factory_girl_rails
   faker
   favorite_things
