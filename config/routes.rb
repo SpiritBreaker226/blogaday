@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root "posts#index"
+
+  resources :posts
   resources :users, except: [:index, :new, :show];
 
   get 'signup'        => 'users#new', :as => :signup
