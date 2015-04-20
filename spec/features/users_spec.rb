@@ -37,4 +37,23 @@ RSpec.feature "Users", type: :feature do
   		expect(page).to have_content "Sign in successful"
   	end
   end
+
+  describe "sign out process" do
+  	let!(:user) { create(:user) }
+
+		it "should sign me out" do
+			visit "/signin"
+
+			within "#signin" do
+				fill_in "Username", with: user.username
+				fill_in "Password", with: "Pass3word:"
+			end
+
+			click_button "Sign In"
+			expect(page).to have_content "Sign in successful"
+
+			click_link "Sign Out"
+			expect(page).to have_content "Signed out"	
+		end
+	end
 end
