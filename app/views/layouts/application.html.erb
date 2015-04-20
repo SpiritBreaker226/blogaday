@@ -24,6 +24,14 @@
           <%= flash[:alert] %> <a href="#" class="close">&times;</a>
         </div>
       <% end %>
+
+      <% if current_user %>
+        <%= link_to("Sign Out", :signout, method: :delete) %>
+        <%= link_to("Profile", :myprofile) %>
+      <% else %>
+        <%= link_to("Sign Up", :signup) %>
+        <%= link_to("Sign in", :signin) %>
+      <% end %>
     </header>
 
     <main>

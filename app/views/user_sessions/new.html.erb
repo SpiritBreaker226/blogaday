@@ -1,0 +1,25 @@
+<section class="user-form">
+	<h2>Sign In</h2>
+
+	<%= form_tag user_sessions_path, id: "signin", method: :post do %>
+
+		<div class="form-field">
+			<%= label_tag :username %>
+			<%= text_field_tag :username %> 
+		</div>
+
+		<div class="form-field user-form-password">
+			<%= label_tag :password %>
+			<%= password_field_tag :password, "", class: "password" %>
+		</div>
+
+		<div class="form-field">
+			<%= check_box_tag :remember %> <%= label_tag :remember, "Remember Me" %> 
+		</div>
+		<br>
+		<div class="form-field">
+			<%= submit_tag "Sign In", class: "submit expand"  %>
+		</div>
+
+	<% end %>
+</section>

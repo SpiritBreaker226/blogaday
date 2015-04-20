@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  root "posts#index"
+
+  resources :posts
+  resources :users, except: [ :index, :new, :show ];
+  resources :user_sessions, only: [ :create ]
+
+  get 'signup'          => 'users#new',               as: :signup
+  get 'myprofile'       => 'users#show',              as: :myprofile
+  get 'signin'          => 'user_sessions#new',       as: :signin
+  delete 'signout'      => 'user_sessions#destroy',   as: :signout
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
