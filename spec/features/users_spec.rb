@@ -21,4 +21,20 @@ RSpec.feature "Users", type: :feature do
   		expect(page).to have_content "Your account has been created"
   	end
   end
+
+  describe "sign in process" do
+  	let!(:user) { create(:user) }
+
+  	it "should sign me in" do
+  		visit "/signin"
+
+  		within "#signin" do
+  			fill_in "Username", with: user.username
+  			fill_in "Password", with: "Pass3word:"
+  		end
+
+  		click_button "Sign In"
+  		expect(page).to have_content "Sign in successful"
+  	end
+  end
 end
