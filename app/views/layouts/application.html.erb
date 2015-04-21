@@ -27,6 +27,7 @@
 
       <% if current_user %>
         <%= link_to("Sign Out", :signout, method: :delete) %>
+        <%= link_to("Edit", edit_user_path(current_user.id)) %>
         <%= link_to("Profile", :myprofile) %>
       <% else %>
         <%= link_to("Sign Up", :signup) %>
