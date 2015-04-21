@@ -42,18 +42,12 @@ RSpec.feature "Users", type: :feature do
   	let!(:user) { create(:user) }
 
 		it "should sign me out" do
-			visit "/signin"
+			login_user_post(user.username, "Pass3word:")
 
-			within "#signin" do
-				fill_in "Username", with: user.username
-				fill_in "Password", with: "Pass3word:"
-			end
-
-			click_button "Sign In"
-			expect(page).to have_content "Sign in successful"
-
+			visit "/"
 			click_link "Sign Out"
 			expect(page).to have_content "Signed out"	
 		end
 	end
+
 end
