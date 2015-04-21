@@ -28,6 +28,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # for user sessions
 gem 'sorcery'
+# for authorization of user
+gem 'cancancan', '~> 1.10'
 # for pagination
 gem 'kaminari'
 # for hiding api tokens from version control
