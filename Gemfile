@@ -35,7 +35,7 @@ gem 'kaminari'
 # for hiding api tokens from version control
 gem 'figaro'
 # Foundation Scss framework
-gem 'foundation-rails'
+gem 'foundation-rails', '5.5.1.0'
 # for awesome icons
 gem 'font-awesome-sass'
 
