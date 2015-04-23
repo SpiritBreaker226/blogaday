@@ -102,6 +102,9 @@ group :development, :test do
 	# create fake objects to test
 	gem 'factory_girl_rails'
 
+	# keeps an eye on any changes to the file in the application and runs rspec
+	gem 'guard'
+
 	# cleans the database after each test
 	gem 'database_cleaner', '~> 1.4.1'
 
@@ -120,4 +123,3 @@ group :development, :test do
   # opens emails in the browser
   gem "letter_opener"
 end
-
