@@ -103,7 +103,7 @@ group :development, :test do
 	gem 'factory_girl_rails'
 
 	# keeps an eye on any changes to the file in the application and runs rspec
-	gem 'guard'
+	gem 'guard-rspec', require: false
 
 	# cleans the database after each test
 	gem 'database_cleaner', '~> 1.4.1'
