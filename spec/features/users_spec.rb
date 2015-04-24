@@ -22,41 +22,41 @@ RSpec.feature "Users", type: :feature do
   	end
   end
 
-  describe "sign in process" do
+  describe "login process" do
   	let!(:user) { create(:user) }
 
-  	it "should sign me in" do
-  		visit "/signin"
+  	it "should log me in" do
+  		visit "/login"
 
-  		within "#signin" do
+  		within "#login" do
   			fill_in "Username", with: user.username
   			fill_in "Password", with: "Pass3word:"
   		end
 
-  		click_button "Sign In"
-  		expect(page).to have_content "Sign in successful"
+  		click_button "Login"
+  		expect(page).to have_content "Login successful"
   	end
   end
 
-  describe "sign out process" do
+  describe "logout process" do
   	let!(:user) { create(:user) }
 
-		it "should sign me out" do
+		it "should log me out" do
 			login_user_post(user.username, "Pass3word:")
 
 			visit "/"
-			click_link "Sign Out"
-			expect(page).to have_content "Signed out"	
+			click_link "Logout"
+			expect(page).to have_content "Logged out"	
 		end
 	end
 
 	describe "edit user process" do
 		let(:user) { create(:user) }
 		
-		it "should not be on edit if not sign in" do
+		it "should not be on edit if not login" do
 			visit "/users/#{user.id}/edit"
 
-			expect(current_path).to eq("/signin")
+			expect(current_path).to eq("/login")
 		end
 
 		context "should be able to change" do
@@ -66,6 +66,7 @@ RSpec.feature "Users", type: :feature do
 
 				visit "/"
 				click_link "Edit"
+
 	  		within ".edit_user" do
 	  			fill_in "Username", with: new_username
 	  		end
