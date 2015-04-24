@@ -4,8 +4,9 @@ require 'capybara/rspec'
 RSpec.feature "Users", type: :feature do
   describe "sign up process" do
   	it "should create a user" do
-  		visit "/signup"
-  		
+  		visit root_url
+      click_link "Sign Up"
+
   		within "#new_user" do
   			user_new_password = "Pass3word:"
 
@@ -26,7 +27,8 @@ RSpec.feature "Users", type: :feature do
   	let!(:user) { create(:user) }
 
   	it "should log me in" do
-  		visit "/login"
+  		visit root_url
+      click_link "Login"
 
   		within "#login" do
   			fill_in "Username", with: user.username
@@ -44,7 +46,7 @@ RSpec.feature "Users", type: :feature do
 		it "should log me out" do
 			login_user_post(user.username, "Pass3word:")
 
-			visit "/"
+			visit root_url
 			click_link "Logout"
 			expect(page).to have_content "Logged out"	
 		end
@@ -64,7 +66,7 @@ RSpec.feature "Users", type: :feature do
 				login_user_post(user.username, "Pass3word:")
 				new_username = Faker::Internet.user_name
 
-				visit "/"
+				visit root_url
 				click_link "Edit"
 
 	  		within ".edit_user" do
