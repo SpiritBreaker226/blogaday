@@ -1,4 +1,6 @@
 class UserSessionsController < ApplicationController
+  load_and_authorize_resource only: [:destroy]
+
   def new
   	if current_user.present?
   		redirect_back_or_to root_path
@@ -11,15 +13,15 @@ class UserSessionsController < ApplicationController
   	@user = current_user
 
   	if @user = login(params[:username], params[:password], params[:remember])
-  		redirect_back_or_to root_path, notice: 'Sign in successful'
+  		redirect_back_or_to root_path, notice: 'Login successful'
   	else
-  		flash.now.alert = 'Sign in failed'
+  		flash.now.alert = 'Login failed'
   		render action: :new
   	end
   end
 
   def destroy
   	logout
-  	redirect_back_or_to root_path, notice: "Signed out!"
+  	redirect_back_or_to root_path, notice: "Logged out successful!"
   end
 end

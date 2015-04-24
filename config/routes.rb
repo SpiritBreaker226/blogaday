@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   get 'signup'          => 'users#new',               as: :signup
   get 'myprofile'       => 'users#show',              as: :myprofile
-  get 'signin'          => 'user_sessions#new',       as: :signin
-  delete 'signout'      => 'user_sessions#destroy',   as: :signout
+  get 'login'           => 'user_sessions#new',       as: :login
+  delete 'logout'       => 'user_sessions#destroy',   as: :logout
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
