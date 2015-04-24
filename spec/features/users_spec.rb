@@ -26,7 +26,7 @@ RSpec.feature "Users", type: :feature do
   describe "login process" do
   	let(:user) { create(:user) }
 
-  	it "should log me in" do
+  	it "should login" do
   		visit root_url
       click_link "Login"
 
@@ -43,7 +43,7 @@ RSpec.feature "Users", type: :feature do
   describe "logout process" do
   	let(:user) { create(:user) }
 
-		it "should log me out" do
+		it "should logout" do
 			login_user_post(user.username, "Pass3word:")
 
 			visit root_url
