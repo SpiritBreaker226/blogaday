@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
+  has_many :post
+
   validates :username, presence: true 
   validates :email, presence: true 
   validates :first_name, presence: true
