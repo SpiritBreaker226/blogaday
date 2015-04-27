@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   root "posts#index"
 
-  resources :posts
-  resources :users, except: [ :index, :new, :show ];
+  resources :posts, only: [ :index, :show ]
   resources :user_sessions, only: [ :create ]
+  resources :users, except: [ :index, :new, :show ] do 
+    resources :posts, except: [ :index, :show ]
+  end
 
   get 'signup'          => 'users#new',               as: :signup
   get 'myprofile'       => 'users#show',              as: :myprofile
