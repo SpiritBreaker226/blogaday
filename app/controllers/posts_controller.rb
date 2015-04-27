@@ -5,10 +5,12 @@ class PostsController < ApplicationController
 
 	def new
 		@post = Post.new
+    @user = current_user
 	end
 
 	def create
 		@post = Post.new(post_params)
+    @post.user = current_user
 
     if @post.save
       redirect_to root_path, notice: "Your post has been created"
@@ -24,10 +26,12 @@ class PostsController < ApplicationController
 
 	def edit
     @post = Post.find(params[:id])
+    @user = current_user
   end
 
   def update
     @post = Post.find(params[:id])
+    @post.user = current_user
 
     if @post.update_attributes(post_params) 
       redirect_to edit_post_path(params[:id]), notice: "Your post has been updated"
