@@ -1,0 +1,16 @@
+<%= form_for [@user, @post] do |f| %>
+	<% if @post.errors.any? %>
+		<%= render partial: 'shared/error_message', locals: { errors: @post.errors } %>
+	<% end %>
+
+	<div class="form-field">
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</div>
+	<div class="form-field">
+		<%= f.label :body %>
+		<%= f.text_area :body, cols: 20, row: 40 %>
+	</div>
+
+	<%= f.submit %>
+<%end%>

@@ -1,0 +1,9 @@
+<ul class="posts">
+	<% @posts.each do |post| %>
+		<li class="card">
+			<%= link_to(post_path(post)) do %>
+				<h4><%= post.title %></h4>
+			<% end %>
+		</li>
+	<% end %>
+</ul>
