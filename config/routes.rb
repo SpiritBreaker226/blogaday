@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   root "posts#index"
 
-  resources :posts, only: [ :index, :show ]
+  resources :posts, only: [ :index, :show, :destroy ]
   resources :user_sessions, only: [ :create ]
   resources :users, except: [ :index, :new, :show ] do 
-    resources :posts, except: [ :index, :show ]
+    resources :posts, except: [ :index, :show, :destroy ]
   end
 
   get 'signup'          => 'users#new',               as: :signup
