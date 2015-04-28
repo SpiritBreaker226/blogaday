@@ -34,7 +34,7 @@ class PostsController < ApplicationController
     @post.user = current_user
 
     if @post.update_attributes(post_params) 
-      redirect_to edit_post_path(params[:id]), notice: "Your post has been updated"
+      redirect_to post_path(params[:id]), notice: "Your post has been updated"
     else
       flash.now alert = "Error Updating your post"
       render :edit
