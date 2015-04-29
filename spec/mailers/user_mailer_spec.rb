@@ -7,11 +7,11 @@ RSpec.describe UserMailer, type: :mailer do
   describe "#reminder_to_blog" do
   	context "when email is sent" do
   		it "have to address" do 
-  			expect(mail.to).to eql [user.email]
+  			expect(mail.to).to eql([user.email])
   		end
 
   		it "have to subject" do 
-  			expect(mail.subject).to match "Time To Blog"
+  			expect(mail.subject).to match("Time To Blog")
   		end
 
   		it "assign @new_post_url" do
