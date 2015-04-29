@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150427142724) do
+ActiveRecord::Schema.define(version: 20150429162006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,16 +27,18 @@ ActiveRecord::Schema.define(version: 20150427142724) do
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name",                   null: false
-    t.string   "last_name",                    null: false
-    t.string   "username",                     null: false
-    t.string   "email",                        null: false
+    t.string   "first_name",                                                   null: false
+    t.string   "last_name",                                                    null: false
+    t.string   "username",                                                     null: false
+    t.string   "email",                                                        null: false
     t.string   "crypted_password"
     t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
+    t.time     "daily_reminder",               default: '2000-01-01 09:00:00'
+    t.boolean  "enable_daily_reminder",        default: true
   end
 
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
