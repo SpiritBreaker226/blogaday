@@ -38,6 +38,8 @@ gem 'figaro'
 gem 'foundation-rails', '5.5.1.0'
 # for awesome icons
 gem 'font-awesome-sass'
+# for adding a con job for Rails
+gem 'whenever', :require => false
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
