@@ -3,6 +3,6 @@ class UserMailer < ApplicationMailer
 		@user = user
 		@new_post_url = new_user_post_url(@user)
 
-		mail to: @user.email, subject: "Time To Blog"
+		mail(to: @user.email, subject: "Time To Blog")
 	end
 end
