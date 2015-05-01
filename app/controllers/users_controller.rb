@@ -45,7 +45,9 @@ class UsersController < ApplicationController
       :username, 
       :email, 
       :password,
-      :password_confirmation
+      :password_confirmation,
+      :daily_reminder,
+      :enable_daily_reminder
     )
   end
 end

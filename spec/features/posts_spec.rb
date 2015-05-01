@@ -41,7 +41,7 @@ RSpec.feature "Posts", type: :feature do
 	  		click_button "Update Post"
 	  		expect(page).to have_content "post has been updated"
 
-	  		expect(Post.find(user.post.first).title).to eq new_post_title
+	  		expect(Post.find(user.post.first.id).title).to eq new_post_title
   		end
   	end
   end
