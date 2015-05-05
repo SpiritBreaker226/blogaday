@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :post do
     title Faker::Hacker.say_something_smart
-		body  Faker::Lorem.paragraph((1..5).to_a.sample, true)
+		body  Faker::Lorem.characters
 		user
   end
 end
