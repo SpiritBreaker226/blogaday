@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   	if body.include? "."
   		body
   	else
-  		"ssasdfasdfasdfasdfasdfasdfafasdfasdfasdfasdfasdfasdfadfasfasfasdfasfaadfasdfadsfadsfasdfadfadsafadfafdfdsffdsadfsadfsafdfdfdffffffffffffssss"
+  		body[0..139]
   	end
   end
 end

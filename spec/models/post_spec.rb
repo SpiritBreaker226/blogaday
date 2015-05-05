@@ -10,6 +10,12 @@ RSpec.describe Post, type: :model do
   		it "return 140 characters" do
   			expect(sentence.length).to eq(140)
   		end
+
+  		it "return 140 characters when over 140 characters" do
+  			post.body = Faker::Lorem.characters(300)
+
+  			expect(sentence.length).to eq(140)  			
+  		end
   	end
 
   	context "proper sentence" do
