@@ -5,9 +5,9 @@ RSpec.describe Post, type: :model do
   	let(:post) { create(:post) } 
 
   	context "just with characters, no period" do
-  		it "return 140 charters" do
-  			sentence = post.get_frist_sentence
+			subject(:sentence) { post.get_frist_sentence } 
 
+  		it "return 140 characters" do
   			expect(sentence.length).to eq(140)
   		end
   	end
