@@ -22,7 +22,7 @@ RSpec.feature "Posts", type: :feature do
 	  		end
 
 	  		click_button "Create Post"
-	  		expect(page).to have_content "post has been created"
+	  		expect(page.status_code).to be(200)
 	  	end
   	end
   end
@@ -43,7 +43,7 @@ RSpec.feature "Posts", type: :feature do
 	  		end
 
 	  		click_button "Update Post"
-	  		expect(page).to have_content "post has been updated"
+	  		expect(page.status_code).to be(200)
 
 	  		expect(Post.find(user.post.first.id).title).to eq new_post_title
   		end
