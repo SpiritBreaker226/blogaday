@@ -24,6 +24,14 @@ RSpec.describe Post, type: :model do
 
   			expect(post.get_frist_sentence).to eq(post.body)
   		end
+
+  		it "return a sentence when more then one" do
+				post.body = Faker::Lorem.sentences(10)
+
+				sentence = post.get_frist_sentence
+
+  			expect(sentence.index('.')).to eq((sentence.length - 1))
+  		end
   	end
   end
 end
