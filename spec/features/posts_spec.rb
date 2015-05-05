@@ -5,13 +5,17 @@ RSpec.feature "Posts", type: :feature do
   describe "#create" do
   	let(:user) { create(:user) }
 
+    subject(:vist_create_post) do
+      login_user_post(user.username, "Pass3word:")
+
+      visit root_url
+      click_link "Create Post"
+    end
+
   	context "with one post" do
   		it "responds with 200" do
-  			login_user_post(user.username, "Pass3word:")
-
-	  		visit root_url
-	      click_link "Create Post"
-
+        vist_create_post
+  			
 	  		within "#new_post" do
 	  			fill_in "Title", with: Faker::Hacker.say_something_smart
 	  			fill_in "Body", with: Faker::Lorem.paragraph((1..5).to_a.sample, true)
