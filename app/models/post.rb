@@ -4,6 +4,10 @@ class Post < ActiveRecord::Base
   validates :body, length: { minimum: 250 }
 
   def get_frist_sentence
-		"ssasdfasdfasdfasdfasdfasdfafasdfasdfasdfasdfasdfasdfadfasfasfasdfasfaadfasdfadsfadsfasdfadfadsafadfafdfdsffdsadfsadfsafdfdfdffffffffffffssss"
+  	if body.include? "."
+  		body
+  	else
+  		"ssasdfasdfasdfasdfasdfasdfafasdfasdfasdfasdfasdfasdfadfasfasfasdfasfaadfasdfadsfadsfasdfadfadsafadfafdfdsffdsadfsadfsafdfdfdffffffffffffssss"
+  	end
   end
 end

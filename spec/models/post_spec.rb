@@ -11,5 +11,15 @@ RSpec.describe Post, type: :model do
   			expect(sentence.length).to eq(140)
   		end
   	end
+
+  	context "proper sentence" do
+  		it "return a proper sentence" do
+  			post.body = Faker::Lorem.sentence(14)
+
+  			sentence = post.get_frist_sentence
+
+  			expect(sentence).to eq(post.body)
+  		end
+  	end
   end
 end
