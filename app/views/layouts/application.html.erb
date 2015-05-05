@@ -12,7 +12,33 @@
   </head>
 
   <body>
-    <header>
+    <header class="main-header">
+      <nav class="top-bar navigation" data-topbar role="navigation" data-options="is_hover: false">
+        <h2 class="hide">Header Navigation</h2>
+
+        <ul class="title-area">
+          <li class="name">
+            <h1><%=link_to 'Blog a Day', root_url %></h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+
+        <section class="top-bar-section main-menu">
+          <h2 class="hide">User Links</h2>
+          <ul class="right">
+            <% if current_user %>
+              <%= link_to("Logout", :logout, method: :delete) %>
+              <%= link_to("Edit", edit_user_path(current_user.id)) %>
+              <%= link_to("Create Post", new_user_post_path(current_user.id)) %>
+              <%= link_to("Profile", :myprofile) %>
+            <% else %>
+              <%= link_to("Sign Up", :signup) %>
+              <%= link_to("Login", :login) %>
+            <% end %>
+          </ul>
+        </section>
+      </nav>
+
       <% if flash[:notice] %>
         <div data-alert class="notice-flash">
           <%= flash[:notice] %> <a href="#" class="close">&times;</a>
@@ -22,16 +48,6 @@
         <div data-alert class="alert-flash">
           <%= flash[:alert] %> <a href="#" class="close">&times;</a>
         </div>
-      <% end %>
-
-      <% if current_user %>
-        <%= link_to("Logout", :logout, method: :delete) %>
-        <%= link_to("Edit", edit_user_path(current_user.id)) %>
-        <%= link_to("Create Post", new_user_post_path(current_user.id)) %>
-        <%= link_to("Profile", :myprofile) %>
-      <% else %>
-        <%= link_to("Sign Up", :signup) %>
-        <%= link_to("Login", :login) %>
       <% end %>
     </header>
 
