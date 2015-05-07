@@ -2,8 +2,10 @@
 	<% @posts.each do |post| %>
 		<li class="card">
 			<%= link_to(post_path(post)) do %>
-				<h4><%= post.title %></h4>
+				<h3><%= post.title %></h3>
 			<% end %>
+
+			<%= post.get_frist_sentence %>
 		</li>
 	<% end %>
 </ul>
