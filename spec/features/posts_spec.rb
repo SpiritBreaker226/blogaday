@@ -36,7 +36,7 @@ RSpec.feature "Posts", type: :feature do
   			
   			login_user_post(user.username, "Pass3word:")
 
-	  		visit edit_user_post_url(user, user.post.first)
+	  		visit edit_user_post_url(user, user.posts.first)
 
 	  		within ".edit_post" do
 	  			fill_in "Title", with: new_post_title
@@ -45,7 +45,7 @@ RSpec.feature "Posts", type: :feature do
 	  		click_button "Update Post"
 	  		expect(page.status_code).to be(200)
 
-	  		expect(Post.find(user.post.first.id).title).to eq new_post_title
+	  		expect(Post.find(user.posts.first.id).title).to eq new_post_title
   		end
   	end
   end
