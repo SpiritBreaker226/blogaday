@@ -4,10 +4,8 @@ class Post < ActiveRecord::Base
   validates :body, length: { minimum: 250 }
 
   def get_frist_sentence
-  	if body.include?(".")
-  		body[0..body.index('.')]
-  	else
-  		body[0..139]
-  	end
+  	first_sentence_end_index = body.include?(".") ? body.index('.') : 139
+
+  	body[0..first_sentence_end_index]
   end
 end
