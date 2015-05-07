@@ -40,6 +40,8 @@ gem 'foundation-rails', '5.5.1.0'
 gem 'font-awesome-sass'
 # for adding a con job for Rails
 gem 'whenever', :require => false
+# for used to colour output to the terminal. 
+gem 'colored'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
