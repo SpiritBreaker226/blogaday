@@ -34,6 +34,8 @@ gem 'cancancan', '~> 1.10'
 gem 'kaminari'
 # for hiding api tokens from version control
 gem 'figaro'
+# Materialize Scss framework
+gem 'materialize-sass'
 # for awesome icons
 gem 'font-awesome-sass'
 # for adding a con job for Rails
