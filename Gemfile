@@ -34,6 +34,8 @@ gem 'cancancan', '~> 1.10'
 gem 'kaminari'
 # for hiding api tokens from version control
 gem 'figaro'
+# doe modernizr
+gem 'modernizr-rails', '~> 2.7.1'
 # Materialize Scss framework
 gem 'materialize-sass'
 # for awesome icons
