@@ -15,5 +15,3 @@
 //= require materialize-sprockets
 //= require turbolinks
 //= require_tree .
-
-$(function(){ $(document).foundation(); });
