@@ -34,8 +34,6 @@ gem 'cancancan', '~> 1.10'
 gem 'kaminari'
 # for hiding api tokens from version control
 gem 'figaro'
-# Foundation Scss framework
-gem 'foundation-rails', '5.5.1.0'
 # for awesome icons
 gem 'font-awesome-sass'
 # for adding a con job for Rails
