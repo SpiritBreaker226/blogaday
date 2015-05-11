@@ -11,6 +11,10 @@
 	@extend .hide-on-med-and-down;
 }
 
+.main-header-navigation-wrapper-mobile-menu-items {
+	@extend .side-nav;
+}
+
 nav .brand-logo {
 	font-family: 'Blesd Day';
 	font-size: 3rem;
