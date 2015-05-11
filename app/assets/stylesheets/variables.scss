@@ -1,0 +1,8 @@
+/*** Colors ***/
+%primary-color {
+	@extend .grey, .darken-4;
+}
+
+%link-color {
+	color: #616161;
+}
