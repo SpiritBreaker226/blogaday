@@ -2,6 +2,10 @@
 	@extend %primary-color;
 }
 
+.main-header-navigation-wrapper {
+	@extend .nav-wrapper;
+}
+
 nav .brand-logo {
 	font-family: 'Blesd Day';
 	font-size: 3rem;
