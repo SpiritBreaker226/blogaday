@@ -14,29 +14,27 @@
   <body>
     <header class="main-header">
       <nav class="top-bar navigation" data-topbar role="navigation" data-options="is_hover: false">
-        <h2 class="hide">Header Navigation</h2>
-
-        <ul class="title-area">
-          <li class="name">
-            <h1><%=link_to 'Blog a Day', root_url %></h1>
-          </li>
-          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-        </ul>
-
-        <section class="top-bar-section main-menu">
-          <h2 class="hide">User Links</h2>
-          <ul class="right">
-            <% if current_user %>
-              <%= link_to("Logout", :logout, method: :delete) %>
-              <%= link_to("Edit", edit_user_path(current_user.id)) %>
-              <%= link_to("Create Post", new_user_post_path(current_user.id)) %>
-              <%= link_to("Profile", :myprofile) %>
-            <% else %>
-              <%= link_to("Sign Up", :signup) %>
-              <%= link_to("Login", :login) %>
-            <% end %>
+        <div class="nav-wrapper">
+          <%=link_to 'Blog a Day', root_url, class: "brand-logo" %>
+          <a href="#" data-activates="mobile-menu" class="button-collapse">
+            <i class="mdi-navigation-menu"></i>
+          </a>
+          <ul class="right hide-on-med-and-down">
+            <li>
+              <%= link_to "text", "url" %>
+              <a href="sass.html">Sass</a>
+            </li>
+            <li><a href="components.html">Components</a></li>
+            <li><a href="javascript.html">Javascript</a></li>
+            <li><a href="mobile.html">Mobile</a></li>
           </ul>
-        </section>
+          <ul class="side-nav" id="mobile-menu">
+            <li><a href="sass.html">Sass</a></li>
+            <li><a href="components.html">Components</a></li>
+            <li><a href="javascript.html">Javascript</a></li>
+            <li><a href="mobile.html">Mobile</a></li>
+          </ul>
+        </div>
       </nav>
 
       <% if flash[:notice] %>
