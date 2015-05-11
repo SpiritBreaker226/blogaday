@@ -20,19 +20,10 @@
             <i class="mdi-navigation-menu"></i>
           </a>
           <ul class="right hide-on-med-and-down">
-            <li>
-              <%= link_to "text", "url" %>
-              <a href="sass.html">Sass</a>
-            </li>
-            <li><a href="components.html">Components</a></li>
-            <li><a href="javascript.html">Javascript</a></li>
-            <li><a href="mobile.html">Mobile</a></li>
+            <%= render "layouts/main_nav_menu_items" %>
           </ul>
           <ul class="side-nav" id="mobile-menu">
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="components.html">Components</a></li>
-            <li><a href="javascript.html">Javascript</a></li>
-            <li><a href="mobile.html">Mobile</a></li>
+            <%= render "layouts/main_nav_menu_items" %>
           </ul>
         </div>
       </nav>
