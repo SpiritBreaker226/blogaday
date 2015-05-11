@@ -13,6 +13,10 @@ a {
 	@extend %link-color
 }
 
+nav {
+	@extend %primary-color;
+}
+
 main {
 	@extend .container
 }
