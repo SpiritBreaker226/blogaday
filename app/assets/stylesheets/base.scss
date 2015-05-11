@@ -12,3 +12,7 @@
 a {
 	@extend %link-color
 }
+
+main {
+	@extend .container
+}
