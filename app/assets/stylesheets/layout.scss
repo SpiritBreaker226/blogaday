@@ -1,4 +1,8 @@
 .main-header {
+	.main-header-navigation {
+		  padding: 0 1rem;
+	}
+	
 	.main-header-navigation-wrapper {
 		@extend .nav-wrapper;
 	}
