@@ -11,6 +11,10 @@
 
 a {
 	color: $link-colour;
+
+  &:hover {
+    color: $link-colour-hover;
+  }
 }
 
 nav {
