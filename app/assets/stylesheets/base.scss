@@ -10,7 +10,7 @@
 }
 
 a {
-	@extend %link-colour;
+	color: $link-colour;
 }
 
 nav {
