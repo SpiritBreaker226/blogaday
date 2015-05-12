@@ -1,6 +1,10 @@
 /*** Colors ***/
-%primary-color {
+%primary-background {
 	@extend .grey, .darken-4;
+}
+
+%primary-colour {
+	@extend .grey-text, .darken-4;
 }
 
 %link-color {

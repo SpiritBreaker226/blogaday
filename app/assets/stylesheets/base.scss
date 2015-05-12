@@ -10,13 +10,13 @@
 }
 
 a {
-	@extend %link-color
+	@extend %link-color;
 }
 
 nav {
-	@extend %primary-color;
+	@extend %primary-background;
 }
 
 main {
-	@extend .container
+	@extend .container;
 }
