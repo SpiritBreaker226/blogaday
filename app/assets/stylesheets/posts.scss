@@ -1,3 +1,34 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-row {
+	@extend .row;
+
+	.post-row-card {
+		@extend .card;
+
+		.post-row-card-action {
+			a {
+				color: $link-colour;
+
+				&:hover {
+			    color: $link-colour-hover;
+			  }
+			}
+		}
+	}
+
+	.post-row-card-content {
+		@extend .card-content;
+	}
+
+	.post-row-card-title {
+		@extend .card-title;
+		@extend %primary-colour;
+	}
+
+	.post-row-card-action {
+		@extend .card-action;
+	}
+}
