@@ -1,0 +1,11 @@
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media #{$small-and-down} { @content; }
+  }
+  @else if $media == medium-screens {
+    @media #{$medium-and-down} { @content; }
+  }
+  @else if $media == large-screens {
+    @media #{$large-and-up} { @content; }
+  }
+}
