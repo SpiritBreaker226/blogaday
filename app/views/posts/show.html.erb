@@ -12,8 +12,10 @@
 
 	<p class="post-details-content"><%= @post.body %></p>
 
-	<% if current_user && current_user.id == @post.user_id %>
-		<%= link_to("Edit", edit_user_post_path(current_user, @post)) %>
-		<%= link_to"Delete", @post, method: :delete, data: {confirm: "Are you sure you want to delete this post?"} %>
-	<% end %>
+	<footer class="post-details-footer">
+		<% if current_user && current_user.id == @post.user_id %>
+			<%= link_to("Edit", edit_user_post_path(current_user, @post)) %>
+			<%= link_to"Delete", @post, method: :delete, data: {confirm: "Are you sure you want to delete this post?"} %>
+		<% end %>
+	</footer>
 </article>
