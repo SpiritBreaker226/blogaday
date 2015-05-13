@@ -3,7 +3,11 @@
 		<h2 class="post-details-title"><%= @post.title %></h2>
 		by <%= @post.user.username %>
 		<br>
-		<i class="post-details-date"><%= time_tag @post.created_at %></i>
+		<i class="post-details-date">
+			<%= time_tag @post.created_at, pubdate: true do %>
+				<%= @post.created_at.strftime("%B %d, %Y")  %>
+			<% end %>
+		</i>
 	</header>
 
 	<p><%= @post.body %></p>
