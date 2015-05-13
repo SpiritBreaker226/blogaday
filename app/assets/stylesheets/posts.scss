@@ -32,3 +32,20 @@
 		@extend .card-action;
 	}
 }
+
+.post-details {
+	.post-details-title {
+		font-size: 3.56rem;
+		line-height: 3.9rem;
+  	
+  	@include respond-to(handhelds) { 
+  		font-size: 2rem;
+			line-height: 2.5rem;
+			margin: 1rem 0 0.5rem;
+  	}
+	}
+	
+	.post-details-date {
+		
+	}
+}
