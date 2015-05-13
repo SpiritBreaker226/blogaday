@@ -10,7 +10,7 @@
 		</i>
 	</header>
 
-	<p><%= @post.body %></p>
+	<p class="post-details-content"><%= @post.body %></p>
 
 	<% if current_user && current_user.id == @post.user_id %>
 		<%= link_to("Edit", edit_user_post_path(current_user, @post)) %>
