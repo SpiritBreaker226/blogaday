@@ -1,7 +1,12 @@
-@import "foundation_and_overrides";
+@import "materialize";
+
+@import "variables";
+@import "mixins";
+@import "base";
 @import "layout";
 
 @import "users";
+@import "posts";
 
 @import "font-awesome-sprockets";
 @import "font-awesome";

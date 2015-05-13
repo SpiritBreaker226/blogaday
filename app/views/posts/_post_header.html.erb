@@ -1,0 +1,9 @@
+<h3 class="<%= local[:post_title_class] %>"><%= local[:post].title %></h3>
+
+by <%= local[:post].user.username %>
+<br>
+<i class="post-details-date">
+	<%= time_tag local[:post].created_at, pubdate: true do %>
+		<%= local[:post].created_at.strftime("%B %d, %Y")  %>
+	<% end %>
+</i>

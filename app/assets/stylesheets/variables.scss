@@ -1,0 +1,10 @@
+%primary-background {
+	@extend .grey, .darken-4;
+}
+
+%primary-colour {
+	@extend .grey-text, .darken-4;
+}
+
+$link-colour: #616161;
+$link-colour-hover: #9E9E9E;

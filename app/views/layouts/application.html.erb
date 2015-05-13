@@ -7,12 +7,27 @@
     <title><%= content_for?(:title) ? yield(:title) : "Blog a Day" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag :modernizr %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <header>
+    <header class="main-header">
+      <nav class="main-header-navigation" role="navigation">
+        <div class="main-header-navigation-wrapper">
+          <%=link_to 'Blog a Day', root_url, class: "brand-logo" %>
+          <a href="#" data-activates="mobile-menu" class="button-collapse">
+            <i class="mdi-navigation-menu"></i>
+          </a>
+          <ul class="main-header-navigation-wrapper-non-mobile-menu">
+            <%= render "layouts/main_nav_menu_items" %>
+          </ul>
+          <ul class="main-header-navigation-wrapper-mobile-menu-items" id="mobile-menu">
+            <%= render "layouts/main_nav_menu_items" %>
+          </ul>
+        </div>
+      </nav>
+
       <% if flash[:notice] %>
         <div data-alert class="notice-flash">
           <%= flash[:notice] %> <a href="#" class="close">&times;</a>
@@ -22,16 +37,6 @@
         <div data-alert class="alert-flash">
           <%= flash[:alert] %> <a href="#" class="close">&times;</a>
         </div>
-      <% end %>
-
-      <% if current_user %>
-        <%= link_to("Logout", :logout, method: :delete) %>
-        <%= link_to("Edit", edit_user_path(current_user.id)) %>
-        <%= link_to("Create Post", new_user_post_path(current_user.id)) %>
-        <%= link_to("Profile", :myprofile) %>
-      <% else %>
-        <%= link_to("Sign Up", :signup) %>
-        <%= link_to("Login", :login) %>
       <% end %>
     </header>
 

@@ -1,9 +1,19 @@
-<ul class="posts">
+<section class="posts">
+	<h2 class="hide">Current Posts</h2>
+
 	<% @posts.each do |post| %>
-		<li class="card">
-			<%= link_to(post_path(post)) do %>
-				<h4><%= post.title %></h4>
-			<% end %>
-		</li>
+		<div class="post-row">
+    	<div class="post-row-card">
+      	<div class="post-row-card-content">
+      		<%= render 'post_header', local: { post_title_class: "post-row-card-title", post: post }  %>
+
+					<p><%= post.get_frist_sentence %></p>
+				</div>
+
+				<div class="post-row-card-action">
+					<%= link_to("Read More", post_path(post)) %>
+				</div>
+			</div>
+		</div>
 	<% end %>
-</ul>
+</section>

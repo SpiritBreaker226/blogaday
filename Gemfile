@@ -34,12 +34,16 @@ gem 'cancancan', '~> 1.10'
 gem 'kaminari'
 # for hiding api tokens from version control
 gem 'figaro'
-# Foundation Scss framework
-gem 'foundation-rails', '5.5.1.0'
+# doe modernizr
+gem 'modernizr-rails', '~> 2.7.1'
+# Materialize Scss framework
+gem 'materialize-sass'
 # for awesome icons
 gem 'font-awesome-sass'
 # for adding a con job for Rails
 gem 'whenever', :require => false
+# for used to colour output to the terminal. 
+gem 'colored'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
