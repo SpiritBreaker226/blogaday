@@ -1,7 +1,10 @@
-<h2>Post</h2>
-
-<article>
-	<h3><%= @post.title %></h3>
+<article class="post-details">
+	<header class="post-details-header">
+		<h2 class="post-details-title"><%= @post.title %></h2>
+		by <%= @post.user.username %>
+		<br>
+		<i class="post-details-date"><%= time_tag @post.created_at %></i>
+	</header>
 
 	<p><%= @post.body %></p>
 
