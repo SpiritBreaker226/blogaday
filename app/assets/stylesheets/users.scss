@@ -17,6 +17,10 @@
 		@extend .input-field, .col, .s6;
 	}
 
+	.daily_reminder_timer {
+		height: 46px;
+	}
+
 	.user-row-form-submit {
 		@extend .btn, .waves-effect, .waves-light
 	}

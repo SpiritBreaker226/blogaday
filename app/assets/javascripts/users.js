@@ -2,7 +2,7 @@
 // All this logic will automatically be available in application.js.
 
 function checkEnableDailyReminder(enableDailyReminder) {
-	var dailyReminder = $("#daily_reminder_timer .select-wrapper");
+	var dailyReminder = $(".daily_reminder_timer .select-wrapper");
 
 	if(enableDailyReminder.checked) {
 		dailyReminder.show();
