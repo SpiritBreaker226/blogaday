@@ -4,10 +4,10 @@
 $(document).on("ready page:load", function() {
 	$(".button-collapse").sideNav();
 
-	if (notice != undefined) {
+	if (typeof notice !== 'undefined') {
 		display_materialize_toats(notice['message'], notice['className']);
 
-		notice = undefined;
+		notice = 'undefined';
 	}
 });
 
