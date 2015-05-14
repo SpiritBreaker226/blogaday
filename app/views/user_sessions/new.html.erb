@@ -1,11 +1,11 @@
 <section class="user-form">
 	<h2>Login</h2>
 
-	<%= form_tag user_sessions_path, id: "login", method: :post do %>
+	<%= form_tag user_sessions_path, class: "user-row-form", id: "login", method: :post do %>
 
 		<div class="form-field">
+			<%= text_field_tag :username %>
 			<%= label_tag :username %>
-			<%= text_field_tag :username %> 
 		</div>
 
 		<div class="form-field user-form-password">
@@ -20,6 +20,6 @@
 		<div class="form-field">
 			<%= submit_tag "Login", class: "submit expand"  %>
 		</div>
-
+			
 	<% end %>
 </section>
