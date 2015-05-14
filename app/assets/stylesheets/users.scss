@@ -16,4 +16,8 @@
 	.user-row-form-two-col {
 		@extend .input-field, .col, .s6;
 	}
+
+	.user-row-form-submit {
+		@extend .btn, .waves-effect, .waves-light
+	}
 }
