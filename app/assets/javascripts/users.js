@@ -4,11 +4,13 @@
 function checkEnableDailyReminder(enableDailyReminder) {
 	var dailyReminder = $(".daily_reminder_timer .select-wrapper");
 
-	if(enableDailyReminder.checked) {
-		dailyReminder.show();
-	} else {
-		dailyReminder.hide();
-	}	
+	if (typeof enableDailyReminder !== 'undefined') {
+		if(enableDailyReminder.checked) {
+			dailyReminder.show();
+		} else {
+			dailyReminder.hide();
+		}
+	}
 }
 
 $("#user_enable_daily_reminder").on("click", function() {
