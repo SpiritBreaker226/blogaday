@@ -19,8 +19,10 @@
 
 		<%= check_box_tag :remember %> <%= label_tag :remember, "Remember Me" %>
 
-		<div class="form-field">
-			<%= submit_tag "Login", class: "submit expand"  %>
+		<div class="user-row">
+			<div class="user-row-form-one-col">
+				<%= button_tag "Login", { class: "user-row-form-submit", type: "submit" } %>
+			</div>
 		</div>
 			
 	<% end %>
