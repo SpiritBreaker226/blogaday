@@ -10,7 +10,7 @@
 	@extend .col, .s12;
 
 	.user-row-form-one-col {
-		@extend .input-field, .col;
+		@extend .input-field, .col, .s12;
 	}
 
 	.user-row-form-two-col {
