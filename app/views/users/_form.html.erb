@@ -23,11 +23,13 @@
 			</div>
 		</div>
 
-		<div class="form-field">
-			<%= f.text_field :email, placeholder: "sample@blogaday.com", class: "validate" %>
-			<%= f.label :email %>
+		<div class="user-row">
+			<div class="user-row-form-one-col">
+				<%= f.text_field :email, placeholder: "sample@blogaday.com", class: "validate" %>
+				<%= f.label :email %>
+			</div>
 		</div>
-
+		
 		<div class="form-field">
 			<%= f.password_field :password, placeholder: "minimum 8 characters, least one character must be uppercase, lowercase and number", class: "validate" %>
 			<%= f.label :password %>
