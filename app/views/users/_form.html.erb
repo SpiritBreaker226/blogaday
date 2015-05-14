@@ -24,13 +24,6 @@
 		</div>
 
 		<div class="form-field">
-			<%= f.check_box :enable_daily_reminder %>
-			<%= f.label :enable_daily_reminder, "Enable Daily Reminder" %>
-			
-			<%= f.datetime_select(:daily_reminder, { discard_day: true, discard_month: true, discard_year: true, discard_minute: true, ampm: true, start_hour: 6 }) %>
-		</div>
-
-		<div class="form-field">
 			<%= f.text_field :email, placeholder: "sample@blogaday.com", class: "validate" %>
 			<%= f.label :email %>
 		</div>
@@ -43,6 +36,13 @@
 		<div class="form-field">
 			<%= f.password_field :password_confirmation, class: "validate" %>
 			<%= f.label :password_confirmation, "Password Confirmation" %>
+		</div>
+
+		<div class="form-field">
+			<%= f.check_box :enable_daily_reminder %>
+			<%= f.label :enable_daily_reminder, "Enable Daily Reminder" %>
+			
+			<%= f.datetime_select(:daily_reminder, { discard_day: true, discard_month: true, discard_year: true, discard_minute: true, ampm: true, start_hour: 6 }) %>
 		</div>
 
 		<div class="form-field">
