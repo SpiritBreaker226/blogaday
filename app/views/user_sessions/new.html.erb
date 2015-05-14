@@ -1,25 +1,29 @@
 <section class="user-form">
 	<h2>Login</h2>
 
-	<%= form_tag user_sessions_path, id: "login", method: :post do %>
+	<%= form_tag user_sessions_path, class: "user-row-form", id: "login", method: :post do %>
 
-		<div class="form-field">
-			<%= label_tag :username %>
-			<%= text_field_tag :username %> 
+		<div class="user-row">
+			<div class="user-row-form-one-col">
+				<%= text_field_tag :username, "", class: "validate" %>
+				<%= label_tag :username %>
+			</div>
 		</div>
 
-		<div class="form-field user-form-password">
-			<%= label_tag :password %>
-			<%= password_field_tag :password, "", class: "password" %>
+		<div class="user-row">
+			<div class="user-row-form-one-col">
+				<%= password_field_tag :password, "", class: "validate" %>
+				<%= label_tag :password %>
+			</div>
 		</div>
 
-		<div class="form-field">
-			<%= check_box_tag :remember %> <%= label_tag :remember, "Remember Me" %> 
-		</div>
-		<br>
-		<div class="form-field">
-			<%= submit_tag "Login", class: "submit expand"  %>
-		</div>
+		<%= check_box_tag :remember %> <%= label_tag :remember, "Remember Me" %>
 
+		<div class="user-row">
+			<div class="user-row-form-one-col">
+				<%= button_tag "Login", { class: "user-row-form-submit", type: "submit" } %>
+			</div>
+		</div>
+			
 	<% end %>
 </section>

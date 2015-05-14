@@ -29,14 +29,21 @@
       </nav>
 
       <% if flash[:notice] %>
-        <div data-alert class="notice-flash">
-          <%= flash[:notice] %> <a href="#" class="close">&times;</a>
-        </div>
+        <script>
+          var notice = {
+            "message":   "<%= flash[:notice] %>",
+            "className": "notice-flash"
+          };
+        </script>
       <% end %>
+
       <% if flash[:alert] %>
-        <div data-alert class="alert-flash">
-          <%= flash[:alert] %> <a href="#" class="close">&times;</a>
-        </div>
+        <script>
+          var notice = {
+            "message":   "<%= flash[:alert] %>",
+            "className": "alert-flash"
+          };
+        </script>
       <% end %>
     </header>
 
