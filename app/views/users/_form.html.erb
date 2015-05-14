@@ -5,6 +5,13 @@
 		<% end %>
 
 		<div class="user-row">
+			<div class="user-row-form-one-col">
+				<%= f.text_field :username, class: "validate" %>
+				<%= f.label :username, "Username" %>
+			</div>
+		</div>
+
+		<div class="user-row">
 			<div class="user-row-form-two-col">
 				<%= f.text_field :first_name, class: "validate" %>
 				<%= f.label :first_name, "First Name" %>
@@ -13,13 +20,6 @@
 			<div class="user-row-form-two-col">
 				<%= f.text_field :last_name, class: "validate" %>
 				<%= f.label :last_name, "Last Name" %>
-			</div>
-		</div>
-
-		<div class="user-row">
-			<div class="user-row-form-one-col">
-				<%= f.text_field :username, class: "validate" %>
-				<%= f.label :username, "Username" %>
 			</div>
 		</div>
 
