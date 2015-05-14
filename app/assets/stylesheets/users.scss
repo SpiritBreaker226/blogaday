@@ -7,5 +7,13 @@
 }
 
 .user-row-form {
-	@extend .col, .s12
+	@extend .col, .s12;
+
+	.user-row-form-one-col {
+		@extend .input-field, .col;
+	}
+
+	.user-row-form-two-col {
+		@extend .input-field, .col, .s6;
+	}
 }
