@@ -29,15 +29,19 @@
 				<%= f.label :email %>
 			</div>
 		</div>
-		
-		<div class="form-field">
-			<%= f.password_field :password, placeholder: "minimum 8 characters, least one character must be uppercase, lowercase and number", class: "validate" %>
-			<%= f.label :password %>
+
+		<div class="user-row">
+			<div class="user-row-form-one-col">		
+				<%= f.password_field :password, placeholder: "minimum 8 characters, least one character must be uppercase, lowercase and number", class: "validate" %>
+				<%= f.label :password %>
+			</div>
 		</div>
 
-		<div class="form-field">
-			<%= f.password_field :password_confirmation, class: "validate" %>
-			<%= f.label :password_confirmation, "Password Confirmation" %>
+		<div class="user-row">
+			<div class="user-row-form-one-col">
+				<%= f.password_field :password_confirmation, class: "validate" %>
+				<%= f.label :password_confirmation, "Password Confirmation" %>
+			</div>
 		</div>
 
 		<div class="form-field">
