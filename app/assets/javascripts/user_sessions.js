@@ -3,4 +3,14 @@
 
 $(document).on("ready page:load", function() {
 	$(".button-collapse").sideNav();
+
+	if (notice != undefined) {
+		display_materialize_toats(notice['message'], notice['className']);
+
+		notice = undefined;
+	}
 });
+
+function display_materialize_toats (displayText, className) {
+	Materialize.toast(displayText, 5000, className);
+}
