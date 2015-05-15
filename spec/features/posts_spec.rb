@@ -9,7 +9,7 @@ RSpec.feature "Posts", type: :feature do
       login_user_post(user.username, "Pass3word:")
 
       visit root_url
-      click_link "Create Post"
+      find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Create Post"
     end
 
   	context "with one post" do
@@ -21,7 +21,7 @@ RSpec.feature "Posts", type: :feature do
 	  			fill_in "Body", with: Faker::Lorem.characters
 	  		end
 
-	  		click_button "Create Post"
+	  		click_on "Submit"
 	  		expect(page.status_code).to be(200)
 	  	end
   	end
@@ -38,11 +38,11 @@ RSpec.feature "Posts", type: :feature do
 
 	  		visit edit_user_post_url(user, user.posts.first)
 
-	  		within ".edit_post" do
+	  		within ".materialize-row-form" do
 	  			fill_in "Title", with: new_post_title
 	  		end
 
-	  		click_button "Update Post"
+	  		click_on "Submit"
 	  		expect(page.status_code).to be(200)
 
 	  		expect(Post.find(user.posts.first.id).title).to eq new_post_title
