@@ -22,26 +22,26 @@
 	}	
 }
 
-.user-form {
+.materialize-form {
 	@extend .row;
 }
 
-.user-row {
+.materialize-row {
 	@extend .row;
 }
 
-.user-row-form {
+.materialize-row-form {
 	@extend .col, .s12;
 
-	.user-row-form-one-col {
+	.materialize-row-form-one-col {
 		@extend .input-field, .col, .s12;
 	}
 
-	.user-row-form-two-col {
+	.materialize-row-form-two-col {
 		@extend .input-field, .col, .s6;
 	}
 
-	.user-row-form-submit {
+	.materialize-row-form-submit {
 		@extend .btn, .waves-effect, .waves-light
 	}
 }
