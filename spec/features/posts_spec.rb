@@ -37,6 +37,17 @@ RSpec.feature "Posts", type: :feature do
           click_on "Submit"
           expect(page.current_path).to eq("/users/#{user.id}/posts")
         end
+
+        context "after fixes validation error" do
+          it "responds with 200" do
+            vist_create_post
+
+            click_on "Submit"
+
+            create_proper_post
+            expect(page.status_code).to be(200)  
+          end
+        end
       end
   	end
   end
