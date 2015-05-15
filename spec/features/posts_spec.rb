@@ -24,6 +24,15 @@ RSpec.feature "Posts", type: :feature do
 	  		click_on "Submit"
 	  		expect(page.status_code).to be(200)
 	  	end
+
+      context "with no title & body" do
+        it "return back to create" do
+          vist_create_post
+
+          click_on "Submit"
+          expect(page.current_path).to eq("/users/#{user.id}/posts")
+        end
+      end
   	end
   end
 
