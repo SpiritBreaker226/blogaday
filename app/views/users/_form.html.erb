@@ -1,62 +1,62 @@
-<%= form_for @user, html: { class: "user-row-form" } do |f| %>
+<%= form_for @user, html: { class: "materialize-row-form" } do |f| %>
 	<% if @user.errors.any? %>
 		<%= render partial: 'shared/error_message', locals: { errors: @user.errors } %>
 	<% end %>
 
-	<div class="user-row">
-		<div class="user-row-form-one-col">
+	<div class="materialize-row">
+		<div class="materialize-row-form-one-col">
 			<%= f.text_field :username, class: "validate" %>
 			<%= f.label :username, "Username" %>
 		</div>
 	</div>
 
-	<div class="user-row">
-		<div class="user-row-form-two-col">
+	<div class="materialize-row">
+		<div class="materialize-row-form-two-col">
 			<%= f.text_field :first_name, class: "validate" %>
 			<%= f.label :first_name, "First Name" %>
 		</div>
 
-		<div class="user-row-form-two-col">
+		<div class="materialize-row-form-two-col">
 			<%= f.text_field :last_name, class: "validate" %>
 			<%= f.label :last_name, "Last Name" %>
 		</div>
 	</div>
 
-	<div class="user-row">
-		<div class="user-row-form-one-col">
+	<div class="materialize-row">
+		<div class="materialize-row-form-one-col">
 			<%= f.text_field :email, placeholder: "sample@blogaday.com", class: "validate" %>
 			<%= f.label :email %>
 		</div>
 	</div>
 
-	<div class="user-row">
-		<div class="user-row-form-one-col">		
+	<div class="materialize-row">
+		<div class="materialize-row-form-one-col">		
 			<%= f.password_field :password, placeholder: "minimum 8 characters, least one character must be uppercase, lowercase and number", class: "validate" %>
 			<%= f.label :password %>
 		</div>
 	</div>
 
-	<div class="user-row">
-		<div class="user-row-form-one-col">
+	<div class="materialize-row">
+		<div class="materialize-row-form-one-col">
 			<%= f.password_field :password_confirmation, class: "validate" %>
 			<%= f.label :password_confirmation, "Password Confirmation" %>
 		</div>
 	</div>
 
-	<div class="user-row">
-		<div class="user-row-form-two-col">
+	<div class="materialize-row">
+		<div class="materialize-row-form-two-col">
 			<%= f.check_box :enable_daily_reminder %>
 			<%= f.label :enable_daily_reminder, "Enable Daily Reminder" %>
 		</div>
 
-		<div class="user-row-form-two-col daily_reminder_timer">
+		<div class="materialize-row-form-two-col daily_reminder_timer">
 			<%= f.datetime_select(:daily_reminder, { discard_day: true, discard_month: true, discard_year: true, discard_minute: true, ampm: true, start_hour: 6 }) %>
 		</div>
 	</div>
 
-	<div class="user-row">
-		<div class="user-row-form-one-col">
-			<%= f.button local[:submit_button_text], { class: "user-row-form-submit", type: "submit" } %>
+	<div class="materialize-row">
+		<div class="materialize-row-form-one-col">
+			<%= f.button local[:submit_button_text], { class: "materialize-row-form-submit", type: "submit" } %>
 		</div>
 	</div>
 <% end %>	

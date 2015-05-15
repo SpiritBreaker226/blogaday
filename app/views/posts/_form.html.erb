@@ -1,16 +1,25 @@
-<%= form_for [@user, @post] do |f| %>
+<%= form_for [@user, @post], html: { class: "materialize-row-form" } do |f| %>
 	<% if @post.errors.any? %>
 		<%= render partial: 'shared/error_message', locals: { errors: @post.errors } %>
 	<% end %>
 
-	<div class="form-field">
-		<%= f.label :title %>
-		<%= f.text_field :title %>
-	</div>
-	<div class="form-field">
-		<%= f.label :body %>
-		<%= f.text_area :body, cols: 20, row: 40, placeholder: "minimum 250 characters" %>
+	<div class="materialize-row">
+		<div class="materialize-row-form-one-col">
+			<%= f.text_field :title, class: "validate" %>
+			<%= f.label :title %>
+		</div>
 	</div>
 
-	<%= f.submit %>
+	<div class="materialize-row">
+		<div class="materialize-row-form-one-col">
+			<%= f.text_area :body, cols: 20, row: 40, placeholder: "minimum 250 characters", class: "materialize-textarea" %>
+			<%= f.label :body %>
+		</div>
+	</div>
+
+	<div class="materialize-row">
+		<div class="materialize-row-form-one-col">
+			<%= f.button "Submit", { class: "materialize-row-form-submit", type: "submit" } %>
+		</div>
+	</div>
 <%end%>

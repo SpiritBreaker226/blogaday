@@ -1,17 +1,17 @@
-<section class="user-form">
+<section class="materialize-form">
 	<h2>Login</h2>
 
-	<%= form_tag user_sessions_path, class: "user-row-form", id: "login", method: :post do %>
+	<%= form_tag user_sessions_path, class: "materialize-row-form", id: "login", method: :post do %>
 
-		<div class="user-row">
-			<div class="user-row-form-one-col">
+		<div class="materialize-row">
+			<div class="materialize-row-form-one-col">
 				<%= text_field_tag :username, "", class: "validate" %>
 				<%= label_tag :username %>
 			</div>
 		</div>
 
-		<div class="user-row">
-			<div class="user-row-form-one-col">
+		<div class="materialize-row">
+			<div class="materialize-row-form-one-col">
 				<%= password_field_tag :password, "", class: "validate" %>
 				<%= label_tag :password %>
 			</div>
@@ -19,9 +19,9 @@
 
 		<%= check_box_tag :remember %> <%= label_tag :remember, "Remember Me" %>
 
-		<div class="user-row">
-			<div class="user-row-form-one-col">
-				<%= button_tag "Login", { class: "user-row-form-submit", type: "submit" } %>
+		<div class="materialize-row">
+			<div class="materialize-row-form-one-col">
+				<%= button_tag "Login", { class: "materialize-row-form-submit", type: "submit" } %>
 			</div>
 		</div>
 			
