@@ -13,15 +13,20 @@ RSpec.feature "Posts", type: :feature do
     end
 
   	context "with one post" do
+      subject(:create_proper_post) {
+        within "#new_post" do
+          fill_in "Title", with: Faker::Hacker.say_something_smart
+          fill_in "Body", with: Faker::Lorem.characters
+        end
+
+        click_on "Submit"
+      }
+
   		it "responds with 200" do
         vist_create_post
-  			
-	  		within "#new_post" do
-	  			fill_in "Title", with: Faker::Hacker.say_something_smart
-	  			fill_in "Body", with: Faker::Lorem.characters
-	  		end
 
-	  		click_on "Submit"
+        create_proper_post
+
 	  		expect(page.status_code).to be(200)
 	  	end
 
