@@ -35,7 +35,7 @@ RSpec.feature "Posts", type: :feature do
           vist_create_post
 
           click_on "Submit"
-          expect(page.current_path).to eq("/users/#{user.id}/posts")
+          expect(page.current_path).to eq("/posts")
         end
 
         context "after fixes validation error" do
@@ -61,7 +61,7 @@ RSpec.feature "Posts", type: :feature do
   			
   			login_user_post(user.username, "Pass3word:")
 
-	  		visit edit_user_post_url(user, user.posts.first)
+	  		visit edit_post_url(user.posts.first)
 
 	  		within ".materialize-row-form" do
 	  			fill_in "Title", with: new_post_title

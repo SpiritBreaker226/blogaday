@@ -3,9 +3,7 @@ Rails.application.routes.draw do
 
   resources :posts
   resources :user_sessions, only: [ :create ]
-  resources :users, except: [ :index, :new, :show ] do 
-    resources :posts, except: [ :index, :show, :destroy ]
-  end
+  resources :users, except: [ :index, :new, :show ]
 
   get 'signup'          => 'users#new',               as: :signup
   get 'myprofile'       => 'users#show',              as: :myprofile

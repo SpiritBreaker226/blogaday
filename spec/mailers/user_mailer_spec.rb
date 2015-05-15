@@ -15,7 +15,7 @@ RSpec.describe UserMailer, type: :mailer do
   		end
 
   		it "assign @new_post_url" do
-  			expect(mail.body.encoded).to match("/#{user.id}/posts/new")
+  			expect(mail.body.encoded).to match("/posts/new")
   		end
   	end
   end
