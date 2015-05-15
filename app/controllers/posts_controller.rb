@@ -36,7 +36,7 @@ class PostsController < ApplicationController
     if @post.update_attributes(post_params) 
       redirect_to post_path(params[:id]), notice: "Your post has been updated"
     else
-      flash.now alert = "Error Updating your post"
+      flash.now.alert = "Error Updating your post"
       render :edit
     end
   end
