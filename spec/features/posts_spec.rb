@@ -9,21 +9,46 @@ RSpec.feature "Posts", type: :feature do
       login_user_post(user.username, "Pass3word:")
 
       visit root_url
-      click_link "Create Post"
+      find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Create Post"
     end
 
   	context "with one post" do
+      subject(:create_proper_post) {
+        within "#new_post" do
+          fill_in "Title", with: Faker::Hacker.say_something_smart
+          fill_in "Body", with: Faker::Lorem.characters
+        end
+
+        click_on "Submit"
+      }
+
   		it "responds with 200" do
         vist_create_post
-  			
-	  		within "#new_post" do
-	  			fill_in "Title", with: Faker::Hacker.say_something_smart
-	  			fill_in "Body", with: Faker::Lorem.characters
-	  		end
 
-	  		click_button "Create Post"
+        create_proper_post
+
 	  		expect(page.status_code).to be(200)
 	  	end
+
+      context "with no title & body" do
+        it "return back to create" do
+          vist_create_post
+
+          click_on "Submit"
+          expect(page.current_path).to eq("/posts")
+        end
+
+        context "after fixes validation error" do
+          it "responds with 200" do
+            vist_create_post
+
+            click_on "Submit"
+
+            create_proper_post
+            expect(page.status_code).to be(200)  
+          end
+        end
+      end
   	end
   end
 
@@ -36,13 +61,13 @@ RSpec.feature "Posts", type: :feature do
   			
   			login_user_post(user.username, "Pass3word:")
 
-	  		visit edit_user_post_url(user, user.posts.first)
+	  		visit edit_post_url(user.posts.first)
 
-	  		within ".edit_post" do
+	  		within ".materialize-row-form" do
 	  			fill_in "Title", with: new_post_title
 	  		end
 
-	  		click_button "Update Post"
+	  		click_on "Submit"
 	  		expect(page.status_code).to be(200)
 
 	  		expect(Post.find(user.posts.first.id).title).to eq new_post_title
