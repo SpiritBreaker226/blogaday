@@ -2,9 +2,9 @@
 // All this logic will automatically be available in application.js.
 
 function checkEnableDailyReminder(enableDailyReminder) {
-	var dailyReminder = $(".daily_reminder_timer .select-wrapper");
-
 	if (typeof enableDailyReminder !== 'undefined') {
+		var dailyReminder = $(".daily_reminder_timer .select-wrapper");
+
 		if(enableDailyReminder.checked) {
 			dailyReminder.show();
 		} else {
@@ -19,8 +19,6 @@ $("#user_enable_daily_reminder").on("click", function() {
 
 $(document).on("ready page:load", function() {
 	checkEnableDailyReminder($("#user_enable_daily_reminder")[0]);
-
-	$('#user_daily_reminder_4i').material_select();
 });
 
 
