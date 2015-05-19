@@ -31,7 +31,7 @@
 
 	.post-row-card-title {
 		@extend .card-title;
-		@extend %primary-colour;
+		color: $primary-colour;
 	}
 
 	.post-row-card-action {
