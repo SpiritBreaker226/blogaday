@@ -1,8 +1,9 @@
 @import "materialize/components/color";
 
 $primary-colour: color("grey", "darken-4") !default;
+$secondary-colour: color("grey", "darken-1") !default;
 
 $link-colour: #616161;
 $link-colour-hover: #9E9E9E;
 
-@import 'materialize';
+@import "materialize";
