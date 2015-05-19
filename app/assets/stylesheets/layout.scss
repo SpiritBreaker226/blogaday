@@ -42,6 +42,7 @@
 	}
 
 	.materialize-row-form-submit {
-		@extend .btn, .waves-effect, .waves-light
+		@extend .btn, .waves-effect, .waves-light;
+		@extend %primary-background;
 	}
 }
