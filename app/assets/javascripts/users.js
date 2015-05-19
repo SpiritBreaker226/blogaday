@@ -2,9 +2,9 @@
 // All this logic will automatically be available in application.js.
 
 function checkEnableDailyReminder(enableDailyReminder) {
-	var dailyReminder = $(".daily_reminder_timer .select-wrapper");
-
 	if (typeof enableDailyReminder !== 'undefined') {
+		var dailyReminder = $(".daily_reminder_timer .select-wrapper");
+
 		if(enableDailyReminder.checked) {
 			dailyReminder.show();
 		} else {
