@@ -23,15 +23,15 @@
 				margin: 1rem 0 0.5rem;
 			}
 		}
+
+		.post-row-card-title {
+			@extend .card-title;
+			color: $primary-colour;
+		}
 	}
 
 	.post-row-card-content {
 		@extend .card-content;
-	}
-
-	.post-row-card-title {
-		@extend .card-title;
-		@extend %primary-colour;
 	}
 
 	.post-row-card-action {

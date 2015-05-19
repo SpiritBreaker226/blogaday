@@ -41,7 +41,19 @@
 		@extend .input-field, .col, .s6;
 	}
 
+	[type="checkbox"]:checked {
+		+ label:before {
+			border-right: 2px solid $radio-fill-colour;
+  		border-bottom: 2px solid $radio-fill-colour;
+		}
+	}
+
 	.materialize-row-form-submit {
-		@extend .btn, .waves-effect, .waves-light
+		&:hover {
+			background-color: $link-colour-hover;
+		}
+
+		@extend .btn, .waves-effect, .waves-light;
+		background-color: $primary-colour;
 	}
 }
