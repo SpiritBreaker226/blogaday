@@ -42,7 +42,12 @@
 	}
 
 	.materialize-row-form-submit {
+		&:hover {
+			background-color: $link-colour-hover;
+		}
+		
 		@extend .btn, .waves-effect, .waves-light;
 		background-color: $primary-colour;
+
 	}
 }
