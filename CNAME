@@ -1,0 +1,4 @@
+Name: blogaday.jstats.me
+TTL: 14400
+Type: CNAME
+Address: jstats-blogaday.herokuapp.com
