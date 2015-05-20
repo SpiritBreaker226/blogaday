@@ -19,7 +19,7 @@ RSpec.feature "Users", type: :feature do
   		end
 
   		click_button "Sign Up"
-  		expect(page).to have_content "Your account has been created"
+      expect(page.status_code).to be(200)  
   	end
   end
 
@@ -36,7 +36,7 @@ RSpec.feature "Users", type: :feature do
   		end
 
   		click_button "Login"
-  		expect(page).to have_content "Login successful"
+      expect(page.status_code).to be(200)
   	end
   end
 
@@ -48,7 +48,7 @@ RSpec.feature "Users", type: :feature do
 
 			visit root_url
 			find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Logout"
-			expect(page).to have_content "Logged out"	
+      expect(page.status_code).to be(200)
 		end
 	end
 
@@ -74,7 +74,7 @@ RSpec.feature "Users", type: :feature do
 	  		end
 
 	  		click_button "Update"
-				expect(page).to have_content "Your account has been updated"
+        expect(page.status_code).to be(200)
 
 				expect(User.find(user.id).username).to eq new_username
 			end
