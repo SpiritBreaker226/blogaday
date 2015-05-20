@@ -45,6 +45,9 @@ gem 'whenever', :require => false
 # for used to colour output to the terminal. 
 gem 'colored'
 
+# rails 12 Factor gem for more detail Heroku Logs and better assests mangement
+gem 'rails_12factor', group: :production
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
