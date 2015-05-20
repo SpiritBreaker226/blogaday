@@ -69,7 +69,7 @@ RSpec.feature "Users", type: :feature do
 				visit root_url
 				find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Edit"
 
-	  		within ".edit_user" do
+	  		within ".materialize-row-form" do
 	  			fill_in "Username", with: new_username
 	  		end
 
