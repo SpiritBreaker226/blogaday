@@ -1,6 +1,4 @@
 class UserSessionsController < ApplicationController
-  load_and_authorize_resource only: [:destroy]
-
   def new
   	if current_user.present?
   		redirect_back_or_to root_path
