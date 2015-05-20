@@ -35,7 +35,7 @@ RSpec.feature "Users", type: :feature do
         expect(current_path).to eq("/login")
       end
     end
-    
+
     context "a user" do
       it "responds with 200" do 
         login_user_post(user.username, "Pass3word:")
@@ -55,34 +55,4 @@ RSpec.feature "Users", type: :feature do
       end
     end
   end
-
-  describe "login process" do
-  	let(:user) { create(:user) }
-
-  	it "should login" do
-  		visit root_url
-      find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Login"
-
-  		within "#login" do
-  			fill_in "Username", with: user.username
-  			fill_in "Password", with: "Pass3word:"
-  		end
-
-  		click_button "Login"
-      expect(page.status_code).to be(200)
-  	end
-  end
-
-  describe "logout process" do
-  	let(:user) { create(:user) }
-
-		it "should logout" do
-			login_user_post(user.username, "Pass3word:")
-
-			visit root_url
-			find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Logout"
-
-      expect(page.status_code).to be(200)
-		end
-	end
 end
