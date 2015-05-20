@@ -5,7 +5,7 @@ RSpec.feature "Users", type: :feature do
   describe "sign up process" do
   	it "should create a user" do
   		visit root_url
-      click_link "Sign Up"
+      find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Sign Up"
 
   		within "#new_user" do
   			user_new_password = "Pass3word:"
@@ -28,7 +28,7 @@ RSpec.feature "Users", type: :feature do
 
   	it "should login" do
   		visit root_url
-      click_link "Login"
+      find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Login"
 
   		within "#login" do
   			fill_in "Username", with: user.username
@@ -47,7 +47,7 @@ RSpec.feature "Users", type: :feature do
 			login_user_post(user.username, "Pass3word:")
 
 			visit root_url
-			click_link "Logout"
+			find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Logout"
 			expect(page).to have_content "Logged out"	
 		end
 	end
@@ -67,7 +67,7 @@ RSpec.feature "Users", type: :feature do
 				new_username = Faker::Internet.user_name
 
 				visit root_url
-				click_link "Edit"
+				find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Edit"
 
 	  		within ".edit_user" do
 	  			fill_in "Username", with: new_username
