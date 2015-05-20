@@ -25,6 +25,37 @@ RSpec.feature "Users", type: :feature do
     end
   end
 
+  describe "#edit" do
+    let(:user) { create(:user) }
+    
+    context "when not login" do
+      it "responds with login link" do
+        visit "/users/#{user.id}/edit"
+
+        expect(current_path).to eq("/login")
+      end
+    end
+    
+    context "a user" do
+      it "responds with 200" do 
+        login_user_post(user.username, "Pass3word:")
+        new_username = Faker::Internet.user_name
+
+        visit root_url
+        find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Edit"
+
+        within ".materialize-row-form" do
+          fill_in "Username", with: new_username
+        end
+
+        click_button "Update"
+        expect(page.status_code).to be(200)
+
+        expect(User.find(user.id).username).to eq new_username
+      end
+    end
+  end
+
   describe "login process" do
   	let(:user) { create(:user) }
 
@@ -52,35 +83,6 @@ RSpec.feature "Users", type: :feature do
 			find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Logout"
 
       expect(page.status_code).to be(200)
-		end
-	end
-
-	describe "edit user process" do
-		let(:user) { create(:user) }
-		
-		it "should not be on edit if not login" do
-			visit "/users/#{user.id}/edit"
-
-			expect(current_path).to eq("/login")
-		end
-
-		context "should be able to change" do
-			it "#username" do 
-				login_user_post(user.username, "Pass3word:")
-				new_username = Faker::Internet.user_name
-
-				visit root_url
-				find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Edit"
-
-	  		within ".materialize-row-form" do
-	  			fill_in "Username", with: new_username
-	  		end
-
-	  		click_button "Update"
-        expect(page.status_code).to be(200)
-
-				expect(User.find(user.id).username).to eq new_username
-			end
 		end
 	end
 end
