@@ -7,4 +7,4 @@ before_install:
 addons:
   postgresql: "9.4"
 before_script:
-	- rake db:setup
+  - rake db:setup
