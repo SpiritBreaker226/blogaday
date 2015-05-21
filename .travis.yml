@@ -4,4 +4,4 @@ rvm:
 before_install:
   - gem update --system
   - gem --version
-after_install: rake db:create
+  - rake db:create
