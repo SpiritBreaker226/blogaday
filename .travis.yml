@@ -5,3 +5,7 @@ before_install:
   - gem update --system
   - gem --version
   - rake db:create
+addons:
+  postgresql: "9.3"
+before_script:
+  - psql -c 'create database blogaday_test;' -U postgres
