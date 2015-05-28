@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root "posts#index"
 
-  resources :posts
+  concern :paginatable do
+    get '(page/:page)', :action => :index, :on => :collection, :as => ''
+  end
+
+  resources :posts, :concerns => :paginatable
   resources :user_sessions, only: [ :create ]
   resources :users, except: [ :index, :new, :show ]
 

@@ -55,3 +55,12 @@
 		
 	}
 }
+
+.pagination {
+	padding-bottom: 3rem;
+
+	li.active {
+		background-color: $primary-colour;
+		color: $link-secondary-colour;
+	}
+}
