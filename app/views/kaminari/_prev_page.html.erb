@@ -6,6 +6,7 @@
     per_page:      number of items to fetch per page
     remote:        data-remote
 -%>
-<li class="prev">
+
+<li  class="waves-effect">
   <%= link_to_unless current_page.first?, "<i class=\"mdi-navigation-chevron-left\"></i>".html_safe, url, :rel => 'prev', :remote => remote %>
 </li>
