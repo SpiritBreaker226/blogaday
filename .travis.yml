@@ -6,3 +6,6 @@ before_install:
   - gem --version
 before_script:
   - rake db:setup
+addons:
+  code_climate:
+    repo_token: 6891f5fbb8f653c1c1ed487568788d17ea5e27433910d9859eb867e1785f9920
