@@ -1,6 +1,8 @@
 = Blog a Day
 
 {<img src="https://travis-ci.org/SpiritBreaker226/blogaday.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/SpiritBreaker226/blogaday] 
+{<img src="https://codeclimate.com/github/SpiritBreaker226/blogaday/badges/gpa.svg" />}[https://codeclimate.com/github/SpiritBreaker226/blogaday] 
+{<img src="https://codeclimate.com/github/SpiritBreaker226/blogaday/badges/coverage.svg" />}[https://codeclimate.com/github/SpiritBreaker226/blogaday/coverage]
 
 Blog a Day is a challenge to blog once a day for 30 days, since it is said that if you do something for 30 days you will make it into a habit. By blogging once a day, you will get those creative juices going and challenge yourself into thinking in new a creative ways.
 In order to avoid having small nonsense postings you must enter a minimum of 250 characters that is roughly a paragraph. This web application will send you an email once a day reminding you to blog, which hopefully you will. 
