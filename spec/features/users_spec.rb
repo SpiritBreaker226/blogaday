@@ -50,12 +50,17 @@ RSpec.feature "Users", type: :feature do
     end
 
     context "a user" do
-      it "responds with 200" do 
+      subject(:login_and_visit_edit_page) do
         login_user_post(user.username, "Pass3word:")
-        new_username = Faker::Internet.user_name
 
         visit root_url
         find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Edit"
+      end
+
+      it "responds with 200" do 
+        new_username = Faker::Internet.user_name
+
+        login_and_visit_edit_page
 
         within ".materialize-row-form" do
           fill_in "Username", with: new_username
