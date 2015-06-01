@@ -21,6 +21,15 @@ RSpec.feature "UserSessions", type: :feature do
   		click_button "Login"
       expect(page.status_code).to be(200)
   	end
+
+    context "login fail" do
+      it "responds with login form" do
+        vist_login
+
+        click_button "Login"
+        expect(page.current_path).to eq("/user_sessions")
+      end
+    end
   end
 
   describe "#destroy" do
