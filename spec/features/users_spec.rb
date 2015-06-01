@@ -71,6 +71,20 @@ RSpec.feature "Users", type: :feature do
 
         expect(User.find(user.id).username).to eq new_username
       end
+
+      context "invalid edit form" do
+        it "responds with edit form" do
+          login_and_visit_edit_page
+
+          within ".materialize-row-form" do
+            fill_in "Username", with: ""
+          end
+
+          click_button "Update"
+   
+          expect(page.current_path).to eq(user_path(user))
+        end
+      end
     end
   end
 end
