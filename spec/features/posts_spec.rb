@@ -78,6 +78,19 @@ RSpec.feature "Posts", type: :feature do
 
 	  		expect(Post.find(user.posts.first.id).title).to eq new_post_title
   		end
+
+      context "invalid edit form" do
+        it "responds with edit form" do
+          login_and_visit_edit_page
+
+          within ".materialize-row-form" do
+            fill_in "Title", with: ""
+          end
+
+          click_submit
+          expect(page.current_path).to eq(post_path(user.posts.first))
+        end
+      end
   	end
   end
 end
