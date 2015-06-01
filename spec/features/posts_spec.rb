@@ -93,4 +93,20 @@ RSpec.feature "Posts", type: :feature do
       end
   	end
   end
+
+  describe "#destroy" do
+    let!(:user) { create(:user_with_posts) }
+
+    context "Removes second post" do
+      it "responds with 200" do
+        login_user_post(user.username, "Pass3word:")
+
+        visit post_url(user.posts.second)
+
+        click_on "Delete"
+        expect(page.status_code).to be(200)
+        expect(Post.where('user_id = ?', user).count).to be(2)
+      end
+    end
+  end
 end
