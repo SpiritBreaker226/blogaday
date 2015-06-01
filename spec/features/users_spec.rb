@@ -50,6 +50,8 @@ RSpec.feature "Users", type: :feature do
     end
 
     context "a user" do
+      subject(:click_update) { click_button "Update" }
+
       subject(:login_and_visit_edit_page) do
         login_user_post(user.username, "Pass3word:")
 
@@ -66,7 +68,7 @@ RSpec.feature "Users", type: :feature do
           fill_in "Username", with: new_username
         end
 
-        click_button "Update"
+        click_update
         expect(page.status_code).to be(200)
 
         expect(User.find(user.id).username).to eq new_username
@@ -80,8 +82,7 @@ RSpec.feature "Users", type: :feature do
             fill_in "Username", with: ""
           end
 
-          click_button "Update"
-   
+          click_update
           expect(page.current_path).to eq(user_path(user))
         end
       end
