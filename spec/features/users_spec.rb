@@ -45,7 +45,7 @@ RSpec.feature "Users", type: :feature do
     
     context "when not login" do
       it "responds with login link" do
-        visit "/users/#{user.id}/edit"
+        visit edit_user_path(user)
 
         expect(current_path).to eq(login_path)
       end
