@@ -2,6 +2,19 @@ require 'rails_helper'
 require 'capybara/rspec'
 
 RSpec.feature "UserSessions", type: :feature do
+  describe "#new" do
+    context "already login" do
+      it "responds with root_url" do
+        user = create(:user)
+
+        login_user_post(user.username, "Pass3word:")
+
+        visit login_path
+        expect(page.current_url).to eq(root_url)
+      end
+    end
+  end
+
   describe "#create" do
   	let(:user) { create(:user) }
     
