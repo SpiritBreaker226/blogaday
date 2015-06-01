@@ -45,7 +45,7 @@ RSpec.feature "Users", type: :feature do
       it "responds with login link" do
         visit "/users/#{user.id}/edit"
 
-        expect(current_path).to eq("/login")
+        expect(current_path).to eq(login_path)
       end
     end
 
