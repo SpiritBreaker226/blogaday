@@ -57,13 +57,17 @@ RSpec.feature "Posts", type: :feature do
   describe "#edit" do
   	let!(:user) { create(:user_with_posts) }
 
-  	context "first post" do
+    context "first post" do
+      subject(:login_and_visit_edit_page) do
+        login_user_post(user.username, "Pass3word:")
+
+        visit edit_post_url(user.posts.first)
+      end
+
   		it "responds with 200" do
   			new_post_title = Faker::Hacker.say_something_smart
   			
-  			login_user_post(user.username, "Pass3word:")
-
-	  		visit edit_post_url(user.posts.first)
+        login_and_visit_edit_page
 
 	  		within ".materialize-row-form" do
 	  			fill_in "Title", with: new_post_title
