@@ -3,10 +3,14 @@ require 'capybara/rspec'
 
 RSpec.feature "Users", type: :feature do
   describe "#create" do
+    subject(:visit_sign_up) do
+      visit root_url
+      find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Sign Up"
+    end
+
     context "a user" do
     	it "responds with 200" do
-    		visit root_url
-        find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Sign Up"
+        visit_sign_up	
 
     		within "#new_user" do
     			user_new_password = "Pass3word:"
