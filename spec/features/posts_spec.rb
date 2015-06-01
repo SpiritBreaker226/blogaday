@@ -57,7 +57,7 @@ RSpec.feature "Posts", type: :feature do
   describe "#edit" do
   	let!(:user) { create(:user_with_posts) }
 
-  	context "frist post" do
+  	context "first post" do
   		it "responds with 200" do
   			new_post_title = Faker::Hacker.say_something_smart
   			
