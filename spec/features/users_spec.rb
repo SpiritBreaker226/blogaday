@@ -26,6 +26,15 @@ RSpec.feature "Users", type: :feature do
     		click_button "Sign Up"
         expect(page.status_code).to be(200)  
     	end
+
+      context "invalid sign up form" do
+        it "responds with sign up form" do
+          visit_sign_up
+
+          click_button "Sign Up"
+          expect(page.current_path).to eq(users_path)
+        end
+      end
     end
   end
 
