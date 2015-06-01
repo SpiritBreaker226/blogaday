@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params) 
       redirect_to edit_user_path(params[:id]), notice: "Your account has been updated"
     else
-      flash.now alert = "Error Updating your account"
+      flash.now.alert = "Error Updating your account"
       render :edit
     end
   end
