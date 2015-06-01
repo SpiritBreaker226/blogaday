@@ -2,6 +2,8 @@ require 'rails_helper'
 require 'capybara/rspec'
 
 RSpec.feature "Posts", type: :feature do
+  subject(:click_submit) { click_button "Submit" }
+
   describe "#create" do
   	let(:user) { create(:user) }
 
@@ -19,7 +21,7 @@ RSpec.feature "Posts", type: :feature do
           fill_in "Body", with: Faker::Lorem.characters
         end
 
-        click_on "Submit"
+        click_submit
       }
 
   		it "responds with 200" do
@@ -34,7 +36,7 @@ RSpec.feature "Posts", type: :feature do
         it "return back to create" do
           vist_create_post
 
-          click_on "Submit"
+          click_submit
           expect(page.current_path).to eq("/posts")
         end
 
@@ -42,7 +44,7 @@ RSpec.feature "Posts", type: :feature do
           it "responds with 200" do
             vist_create_post
 
-            click_on "Submit"
+            click_submit
 
             create_proper_post
             expect(page.status_code).to be(200)  
@@ -67,7 +69,7 @@ RSpec.feature "Posts", type: :feature do
 	  			fill_in "Title", with: new_post_title
 	  		end
 
-	  		click_on "Submit"
+	  		click_submit
 	  		expect(page.status_code).to be(200)
 
 	  		expect(Post.find(user.posts.first.id).title).to eq new_post_title
