@@ -8,6 +8,8 @@ RSpec.feature "Users", type: :feature do
       find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Sign Up"
     end
 
+    subject(:click_sign_up) { click_button "Sign Up" }
+
     context "a user" do
     	it "responds with 200" do
         visit_sign_up	
@@ -23,7 +25,7 @@ RSpec.feature "Users", type: :feature do
     			fill_in "Password Confirmation", with: user_new_password
     		end
 
-    		click_button "Sign Up"
+    		click_sign_up
         expect(page.status_code).to be(200)  
     	end
 
@@ -31,7 +33,7 @@ RSpec.feature "Users", type: :feature do
         it "responds with sign up form" do
           visit_sign_up
 
-          click_button "Sign Up"
+          click_sign_up
           expect(page.current_path).to eq(users_path)
         end
       end
