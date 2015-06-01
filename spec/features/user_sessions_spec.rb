@@ -4,11 +4,15 @@ require 'capybara/rspec'
 RSpec.feature "UserSessions", type: :feature do
   describe "#create" do
   	let(:user) { create(:user) }
+    
+    subject(:vist_login) do
+      visit root_url
+      find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Login"
+    end
 
   	it "responds with 200" do 
-  		visit root_url
-      find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Login"
-
+  		vist_login
+    
   		within "#login" do
   			fill_in "Username", with: user.username
   			fill_in "Password", with: "Pass3word:"
