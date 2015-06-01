@@ -23,6 +23,8 @@ RSpec.feature "UserSessions", type: :feature do
       find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Login"
     end
 
+    subject(:click_login) { click_button "Login" } 
+
   	it "responds with 200" do 
   		visit_login
     
@@ -31,7 +33,7 @@ RSpec.feature "UserSessions", type: :feature do
   			fill_in "Password", with: "Pass3word:"
   		end
 
-  		click_button "Login"
+  		click_login
       expect(page.status_code).to be(200)
   	end
 
@@ -39,7 +41,7 @@ RSpec.feature "UserSessions", type: :feature do
       it "responds with login form" do
         visit_login
 
-        click_button "Login"
+        click_login
         expect(page.current_path).to eq(user_sessions_path)
       end
     end
