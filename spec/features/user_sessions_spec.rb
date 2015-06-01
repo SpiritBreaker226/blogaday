@@ -40,7 +40,7 @@ RSpec.feature "UserSessions", type: :feature do
         vist_login
 
         click_button "Login"
-        expect(page.current_path).to eq("/user_sessions")
+        expect(page.current_path).to eq(user_sessions_path)
       end
     end
   end
