@@ -34,4 +34,14 @@ RSpec.describe Post, type: :model do
   		end
   	end
   end
+
+  describe "#render_markdown_post_to_html" do
+    let(:post_with_markdown) { create(:post, body: "### #{Faker::Hacker.say_something_smart}\n*#{Faker::Lorem.sentences}* \n**#{Faker::Lorem.words(19)}**\n#{Faker::Internet.url}") } 
+
+    context "post with markdown body" do
+      it "return html" do
+        expect(post_with_markdown.render_markdown_post_to_html.include?("<h3>")).to be(true)
+      end
+    end
+  end
 end
