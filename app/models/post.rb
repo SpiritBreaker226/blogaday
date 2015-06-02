@@ -9,4 +9,8 @@ class Post < ActiveRecord::Base
 
   	body[0..first_sentence_end_index]
   end
+
+  def render_markdown_post_to_html
+  	"<h3>"
+  end
 end
