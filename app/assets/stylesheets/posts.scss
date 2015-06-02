@@ -64,3 +64,10 @@
 		color: $link-secondary-colour;
 	}
 }
+
+.materialize-row-form-label-markdown-support {
+	@extend .col, .s12;
+
+	text-align: right;
+	font-size: 0.8rem;
+}
