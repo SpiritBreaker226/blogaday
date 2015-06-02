@@ -42,6 +42,10 @@ RSpec.describe Post, type: :model do
         expect(sentence_with_markdown.include?("###")).to be(false)
       end
 
+      it "return string with no HTML tags" do
+        expect(sentence_with_markdown.include?("<h3>")).to be(false)
+      end
+
       it "return a plain text version with a sentence" do
         expect(sentence_with_markdown.index('.')).to eq((sentence_with_markdown.length - 1))
       end
