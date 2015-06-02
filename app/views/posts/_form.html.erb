@@ -11,6 +11,9 @@
 	</div>
 
 	<div class="materialize-row">
+		<div class="materialize-row-form-label-markdown-support">
+			<%= link_to("Markdown", "https://guides.github.com/features/mastering-markdown", target: :blank) %> supported
+		</div>
 		<div class="materialize-row-form-one-col">
 			<%= f.text_area :body, cols: 20, row: 40, placeholder: "minimum 250 characters", class: "materialize-textarea" %>
 			<%= f.label :body %>

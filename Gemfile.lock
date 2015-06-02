@@ -98,6 +98,7 @@ GEM
       thor (~> 0.14)
     font-awesome-sass (4.3.2.1)
       sass (~> 3.2)
+    github-markdown (0.6.8)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -267,6 +268,7 @@ DEPENDENCIES
   favorite_things
   figaro
   font-awesome-sass
+  github-markdown (~> 0.6.8)
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
