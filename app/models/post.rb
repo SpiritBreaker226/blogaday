@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
   	body[0..first_sentence_end_index]
   end
 
-  def render_markdown_post_to_html
-  	GitHub::Markdown.render_gfm(body)
+  def render_markdown_post_to_html(plaintext_instead: false)
+  	plaintext_instead == false ? GitHub::Markdown.render_gfm(body) : GitHub::Markdown.to_html(body, :plaintext)
   end
 end
