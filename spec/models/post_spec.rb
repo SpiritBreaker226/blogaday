@@ -33,6 +33,15 @@ RSpec.describe Post, type: :model do
   			expect(sentence.index('.')).to eq((sentence.length - 1))
   		end
   	end
+
+    context "with markdown body and proper sentence" do
+      let(:post_with_markdown) { create(:post, body: "### #{Faker::Hacker.say_something_smart}\n*#{Faker::Lorem.sentences(14)}*") }
+      subject(:sentence_with_markdown) { post_with_markdown.get_frist_sentence } 
+
+      it "return a plain text version with a sentence" do
+        expect(sentence_with_markdown.index('.')).to eq((sentence_with_markdown.length - 1))
+      end
+    end
   end
 
   describe "#render_markdown_post_to_html" do
