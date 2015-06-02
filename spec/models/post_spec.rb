@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  describe "#get_frist_sentence" do
-  	let(:post) { create(:post) } 
+  let(:post) { create(:post) } 
 
+  describe "#get_frist_sentence" do
   	context "just with characters, no period" do
 			subject(:sentence) { post.get_frist_sentence } 
 
