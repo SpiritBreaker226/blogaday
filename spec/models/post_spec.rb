@@ -38,6 +38,10 @@ RSpec.describe Post, type: :model do
       let(:post_with_markdown) { create(:post, body: "### #{Faker::Hacker.say_something_smart}\n*#{Faker::Lorem.sentences(14)}*") }
       subject(:sentence_with_markdown) { post_with_markdown.get_frist_sentence } 
 
+      it "return string with no markdown tags" do
+        expect(sentence_with_markdown.include?("###")).to be(false)
+      end
+
       it "return a plain text version with a sentence" do
         expect(sentence_with_markdown.index('.')).to eq((sentence_with_markdown.length - 1))
       end
