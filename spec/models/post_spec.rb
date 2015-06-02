@@ -36,7 +36,7 @@ RSpec.describe Post, type: :model do
   end
 
   describe "#render_markdown_post_to_html" do
-    let(:post_with_markdown) { create(:post, body: "### #{Faker::Hacker.say_something_smart}\n*#{Faker::Lorem.sentences}* \n**#{Faker::Lorem.words(19)}**\n#{Faker::Internet.url}") } 
+    let(:post_with_markdown) { create(:post, body: "### #{Faker::Hacker.say_something_smart}\n*#{Faker::Lorem.sentences}* \n**#{Faker::Lorem.words(19)}**\n#{Faker::Internet.url}") }
 
     context "post with markdown body" do
       it "return string includes <h3>" do
@@ -45,6 +45,10 @@ RSpec.describe Post, type: :model do
 
       it "return string includes link" do
         expect(post_with_markdown.render_markdown_post_to_html.include?("<a href=")).to be(true)
+      end
+
+      it "return plain text version" do
+        expect(post_with_markdown.render_markdown_post_to_html(plaintext_instead: true).include?("<em>")).to be(false)
       end
     end
 
