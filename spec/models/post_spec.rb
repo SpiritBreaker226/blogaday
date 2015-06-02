@@ -47,5 +47,11 @@ RSpec.describe Post, type: :model do
         expect(post_with_markdown.render_markdown_post_to_html.include?("<a href=")).to be(true)
       end
     end
+
+    context "post without markdown body" do
+      it "return string with p tag around it" do
+        expect(post.render_markdown_post_to_html).to eq("<p>#{post.body}</p>\n")
+      end
+    end
   end
 end
