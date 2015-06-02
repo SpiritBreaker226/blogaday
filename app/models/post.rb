@@ -11,6 +11,6 @@ class Post < ActiveRecord::Base
   end
 
   def render_markdown_post_to_html
-  	"<h3>"
+  	GitHub::Markdown.render_gfm(body)
   end
 end
