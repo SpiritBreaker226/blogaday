@@ -44,7 +44,8 @@ gem 'font-awesome-sass'
 gem 'whenever', :require => false
 # for used to colour output to the terminal. 
 gem 'colored'
-
+# markdown render parser
+gem 'github-markdown', '~> 0.6.8'
 # rails 12 Factor gem for more detail Heroku Logs and better assests mangement
 gem 'rails_12factor', group: :production
 
