@@ -42,6 +42,10 @@ RSpec.describe Post, type: :model do
       it "return string includes <h3>" do
         expect(post_with_markdown.render_markdown_post_to_html.include?("<h3>")).to be(true)
       end
+
+      it "return string includes link" do
+        expect(post_with_markdown.render_markdown_post_to_html.include?("<a href=")).to be(true)
+      end
     end
   end
 end
