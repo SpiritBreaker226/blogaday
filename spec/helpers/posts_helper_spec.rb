@@ -15,7 +15,7 @@ RSpec.describe PostsHelper, type: :helper do
 		let(:post) { create(:post) }
 
 		context "no summary text use first sentence" do
-			it "return a sentence" do
+			it "return a sentence with get_frist_sentence" do
 				post.body = Faker::Lorem.sentence(14)
 
 				expect(helper.display_summary(post)).to eq(post.get_frist_sentence)
