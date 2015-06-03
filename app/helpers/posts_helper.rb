@@ -1,5 +1,9 @@
 module PostsHelper
 	def display_summary(post)
-		post.get_frist_sentence
+		if post.summary.empty?
+			post.get_frist_sentence
+		else
+			post.summary
+		end
 	end
 end
