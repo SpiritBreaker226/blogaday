@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
 
   validates :title, presence: true 
+  validates :summary, length: { maximum: 140 }
   validates :body, length: { minimum: 250 }
 
   def get_frist_sentence
