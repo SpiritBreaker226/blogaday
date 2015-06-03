@@ -31,14 +31,16 @@
 }
 
 .materialize-row-form {
-	@extend .col, .s12;
-
 	.materialize-row-form-one-col {
-		@extend .input-field, .col, .s12;
+		@extend .input-field;
+		@extend .col;
+		@extend .s12;
 	}
 
 	.materialize-row-form-two-col {
-		@extend .input-field, .col, .s6;
+		@extend .input-field;
+		@extend .col;
+		@extend .s6;
 	}
 
 	[type="checkbox"]:checked {
