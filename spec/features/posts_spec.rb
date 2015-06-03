@@ -52,6 +52,26 @@ RSpec.feature "Posts", type: :feature do
         end
       end
   	end
+
+    context "with one post and summary" do
+      subject(:create_proper_post_with_summary) {
+        within "#new_post" do
+          fill_in "Title", with: Faker::Hacker.say_something_smart
+          fill_in "Body", with: Faker::Lorem.characters
+          fill_in "Summary", with: Faker::Lorem.sentence
+        end
+
+        click_submit
+      }
+
+      it "responds with 200" do
+        vist_create_post
+
+        create_proper_post_with_summary
+
+        expect(page.status_code).to be(200)
+      end
+    end
   end
 
   describe "#edit" do
