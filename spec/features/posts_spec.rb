@@ -71,6 +71,21 @@ RSpec.feature "Posts", type: :feature do
 
         expect(page.status_code).to be(200)
       end
+
+      context "with too many chartecters in summary" do
+        it "return back to create" do
+          vist_create_post
+
+          within "#new_post" do
+            fill_in "Title", with: Faker::Hacker.say_something_smart
+            fill_in "Body", with: Faker::Lorem.characters
+            fill_in "Summary", with: Faker::Lorem.characters(512)
+          end
+
+          click_submit
+          expect(page.current_path).to eq("/posts")
+        end
+      end
     end
   end
 
