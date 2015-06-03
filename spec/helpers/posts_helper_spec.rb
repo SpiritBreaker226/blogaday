@@ -18,6 +18,10 @@ RSpec.describe PostsHelper, type: :helper do
 			it "return a sentence for the summary" do
 				expect(helper.display_summary(post)).to eq(post.summary)
 			end
+
+			it "be false for lesser or equal then 140 characters" do
+				expect(helper.display_summary(post).length).to be <= 140
+			end
 		end
 
 		context "no summary text use first sentence" do
