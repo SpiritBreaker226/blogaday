@@ -11,5 +11,19 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe PostsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+	describe "#display_post_summary" do
+		let(:post) { create(:post) }
+
+		context "no summary text use first sentence" do
+			it "return a sentence" do
+				post.body = Faker::Lorem.sentence(14)
+
+				expect(helper.display_summary(post)).to eq(post.get_frist_sentence)
+			end
+
+			it "return 140 characters" do
+  			expect(helper.display_summary(post).length).to eq(140)
+  		end
+		end
+	end
 end

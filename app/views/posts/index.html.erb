@@ -7,7 +7,7 @@
       	<div class="post-row-card-content">
       		<%= render 'post_header', local: { post_title_class: "post-row-card-title", post: post }  %>
 
-					<p><%= post.get_frist_sentence %></p>
+					<p><%= display_summary(post) %></p>
 				</div>
 
 				<div class="post-row-card-action">
