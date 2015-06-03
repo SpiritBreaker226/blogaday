@@ -12,6 +12,14 @@ require 'rails_helper'
 # end
 RSpec.describe PostsHelper, type: :helper do
 	describe "#display_post_summary" do
+		context "use summary text" do
+			let(:post) { create(:post) }
+
+			it "return a sentence for the summary" do
+				expect(helper.display_summary(post)).to eq(post.summary)
+			end
+		end
+
 		context "no summary text use first sentence" do
 			let(:post_no_summary) { create(:post, summary: "") }	
 
