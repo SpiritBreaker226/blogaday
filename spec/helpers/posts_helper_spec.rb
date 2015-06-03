@@ -36,6 +36,14 @@ RSpec.describe PostsHelper, type: :helper do
 			it "return 140 characters" do
   			expect(helper.display_summary(post_no_summary).length).to eq(140)
   		end
+
+  		context "summary text is nil" do
+  			it "return 140 characters" do
+					post_no_summary.summary = nil
+
+  				expect(helper.display_summary(post_no_summary).length).to eq(140)
+  			end
+  		end
 		end
 	end
 end
