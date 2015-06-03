@@ -20,6 +20,11 @@
 		</div>
 	</div>
 
+	<div class="materialize-row-form-one-col">
+		<%= f.text_area :summary, cols: 20, row: 40, placeholder: "(Optional) maximum 140 characters", class: "materialize-textarea", length: 140 %>
+		<%= f.label :summary %>
+	</div>
+
 	<div class="materialize-row">
 		<div class="materialize-row-form-one-col">
 			<%= f.button "Submit", { class: "materialize-row-form-submit", type: "submit" } %>
