@@ -5,6 +5,8 @@
 
 	<p class="post-details-content"><%= @markdown_post_body %></p>
 
+	<%= render template: 'comments/new' %>
+
 	<footer class="post-details-footer">
 		<% if current_user && current_user.id == @post.user_id %>
 			<%= link_to("Edit", edit_post_path(@post)) %>
