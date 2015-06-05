@@ -12,6 +12,8 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @post, notice: "Comment added"
     else
+      @markdown_post_body = @post.render_markdown_post_to_html.html_safe
+
       flash.now[:alert] = "Unable to added comment"
       render template: "posts/show"
     end
