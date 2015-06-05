@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :posts, :concerns => :paginatable do
-    resources :comments, except: [:show, :new]
+    resources :comments, except: [ :show, :new, :edit ]
   end
 
   resources :user_sessions, only: [ :create ]
