@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_filter :find_post
+
   def index
   end
 
@@ -28,5 +30,9 @@ class CommentsController < ApplicationController
       :post_id,
       :user_id
     )
+  end
+
+  def find_post
+    @post = Post.find(params[:post_id])
   end
 end
