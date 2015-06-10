@@ -5,12 +5,14 @@
 
 	<p class="post-details-content"><%= @markdown_post_body %></p>
 
-	<%= render template: 'comments/new' %>
-
 	<footer class="post-details-footer">
 		<% if current_user && current_user.id == @post.user_id %>
 			<%= link_to("Edit", edit_post_path(@post)) %>
 			<%= link_to"Delete", @post, method: :delete, data: {confirm: "Are you sure you want to delete this post?"} %>
 		<% end %>
 	</footer>
+
+	<% if current_user %>
+		<%= render template: 'comments/new' %>
+	<% end %>
 </article>
