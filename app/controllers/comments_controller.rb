@@ -17,7 +17,21 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @comment = Comment.find(params[:id])
+    @user = current_user
+  end
+
   def update
+    @comment = Comment.find(params[:id])
+    @comment.user = current_user
+
+    if @comment.update_attributes(comment_params) 
+      redirect_to @post, notice: "Your comment has been updated"
+    else
+      flash.now.alert = "Error Updating your comment"
+      render :edit
+    end
   end
 
   def destroy
