@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comments = @post.comments.page(params[:page])
     @comment.user = current_user
     @comment.post = @post
 
