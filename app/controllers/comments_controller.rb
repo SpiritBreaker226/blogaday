@@ -1,9 +1,6 @@
 class CommentsController < ApplicationController
   before_filter :find_post
 
-  def index
-  end
-
   def create
     @comment = Comment.new(comment_params)
     @comment.user = current_user
