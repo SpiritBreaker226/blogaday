@@ -1,0 +1,18 @@
+<%= form_for [@post, @comment], html: { class: "materialize-row-form" } do |f| %>
+	<% if @comment.errors.any? %>
+		<%= render partial: 'shared/error_message', locals: { errors: @comment.errors } %>
+	<% end %>
+
+	<div class="materialize-row">
+		<div class="materialize-row-form-one-col">
+			<%= f.text_area :body, cols: 10, row: 20, class: "materialize-textarea" %>
+			<%= f.label :body %>
+		</div>
+	</div>
+
+	<div class="materialize-row">
+		<div class="materialize-row-form-one-col">
+			<%= f.button "Submit", { class: "materialize-row-form-submit", type: "submit" } %>
+		</div>
+	</div>
+<%end%>

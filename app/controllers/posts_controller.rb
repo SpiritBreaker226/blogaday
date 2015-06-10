@@ -22,6 +22,8 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments.page(params[:page])
     @markdown_post_body = @post.render_markdown_post_to_html.html_safe
 	end
 

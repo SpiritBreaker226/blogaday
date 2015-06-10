@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     get '(page/:page)', :action => :index, :on => :collection, :as => ''
   end
 
-  resources :posts, :concerns => :paginatable
+  resources :posts, :concerns => :paginatable do
+    resources :comments, except: [ :index, :show, :new ]
+  end
+
   resources :user_sessions, only: [ :create ]
   resources :users, except: [ :index, :new, :show ]
 
