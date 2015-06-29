@@ -62,6 +62,20 @@ RSpec.feature "Comments", type: :feature do
 
         expect(page.status_code).to be(200) 
       end
+
+      context "and no body" do
+        it "responds with edit form" do
+          login_and_visit_edit_page
+
+          within ".materialize-row-form" do
+            fill_in "Body", with: ""
+          end
+
+          click_submit
+
+          expect(page.current_path).to eq(post_comment_path(Post.first, Post.first.comments.second))
+        end
+      end
     end
   end
 end
