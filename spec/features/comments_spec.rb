@@ -23,6 +23,18 @@ RSpec.feature "Comments", type: :feature do
 
         expect(page.status_code).to be(200)
       end
+
+      context "and no body" do
+        it "return back to create" do
+          login_user_post(user.username, "Pass3word:")
+
+          visit_post
+
+          click_submit
+
+          expect(page.current_path).to eq("/posts/#{post.id}/comments")
+        end
+      end
   	end
   end
 end
