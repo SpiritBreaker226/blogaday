@@ -8,12 +8,14 @@ RSpec.feature "Comments", type: :feature do
   describe "#create" do
   	let(:post) { create(:post) }
     let(:user) { create(:user) }
-    subject(:visit_post) { visit post_url(post) }
+    subject(:visit_post) do 
+      login_user_post(user.username, "Pass3word:")
+      
+      visit post_url(post) 
+    end
 
   	context "with post has no comments" do
   		it "responds with 200" do
-        login_user_post(user.username, "Pass3word:")
-
         visit_post
 
         within "#new_comment" do
@@ -27,8 +29,6 @@ RSpec.feature "Comments", type: :feature do
 
       context "and no body" do
         it "return back to create" do
-          login_user_post(user.username, "Pass3word:")
-
           visit_post
 
           click_submit
