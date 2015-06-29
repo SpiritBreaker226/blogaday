@@ -92,7 +92,7 @@ RSpec.feature "Comments", type: :feature do
 
         visit post_url(first_post)
 
-        click_on "Delete"
+        find(".current_user_comment_controls_for_#{first_post_comment.id}").click_on "Delete"
 
         expect(page.status_code).to be(200)
         expect(Post.first.comments.count).to be((number_of_comments_post - 1))
