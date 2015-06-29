@@ -78,4 +78,24 @@ RSpec.feature "Comments", type: :feature do
       end
     end
   end
+
+  describe "#destroy" do
+    context "Removes third comment" do
+      it "responds with 200" do
+        post_with_comments
+
+        first_post = Post.first
+        number_of_comments_post = first_post.comments.count
+
+        login_user_post(first_post.comments.third.user.username, "Pass3word:")
+
+        visit post_url(first_post)
+
+        click_on "Delete"
+
+        expect(page.status_code).to be(200)
+        expect(Post.first.comments.count).to be((number_of_comments_post - 1))
+      end
+    end
+  end
 end
