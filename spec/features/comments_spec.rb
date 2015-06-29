@@ -2,6 +2,7 @@ require 'rails_helper'
 require 'capybara/rspec'
 
 RSpec.feature "Comments", type: :feature do
+	let(:post_with_comments) { create(:post_with_comments) }
   subject(:click_submit) { click_button "Submit" }
 
   describe "#create" do
