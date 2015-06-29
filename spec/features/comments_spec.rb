@@ -48,7 +48,7 @@ RSpec.feature "Comments", type: :feature do
 
         login_user_post(user.username, "Pass3word:")
 
-        visit edit_post_comment_url(Post.first, user.comments.first)
+        visit edit_post_comment_url(Post.first, Post.first.comments.second)
       end
 
       it "responds with 200" do
