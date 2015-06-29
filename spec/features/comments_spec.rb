@@ -85,9 +85,10 @@ RSpec.feature "Comments", type: :feature do
         post_with_comments
 
         first_post = Post.first
+        first_post_comment = first_post.comments.third
         number_of_comments_post = first_post.comments.count
 
-        login_user_post(first_post.comments.third.user.username, "Pass3word:")
+        login_user_post(first_post_comment.user.username, "Pass3word:")
 
         visit post_url(first_post)
 
