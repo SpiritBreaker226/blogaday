@@ -38,4 +38,30 @@ RSpec.feature "Comments", type: :feature do
       end
   	end
   end
+  
+  describe "#edit" do
+    context "second comment" do
+      subject(:login_and_visit_edit_page) do
+        post_with_comments
+
+        user = Post.first.comments.second.user
+
+        login_user_post(user.username, "Pass3word:")
+
+        visit edit_post_comment_url(Post.first, user.comments.first)
+      end
+
+      it "responds with 200" do
+        login_and_visit_edit_page
+
+        within ".materialize-row-form" do
+          fill_in "Body", with: Faker::Lorem.characters
+        end
+
+        click_submit
+
+        expect(page.status_code).to be(200) 
+      end
+    end
+  end
 end
