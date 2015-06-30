@@ -11,5 +11,21 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe UsersHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#user_author_any_post?" do
+  	context "user has no post" do
+  		let(:user) { create(:user) }
+
+  		it "return false" do
+  			expect(helper.user_author_any_post?(user.posts)).to be(false)
+  		end
+  	end
+
+  	context "user has post" do
+  		let(:user) { create(:user_with_posts) }
+
+  		it "return true" do
+  			expect(helper.user_author_any_post?(user.posts)).to be(true)
+  		end
+  	end
+  end
 end

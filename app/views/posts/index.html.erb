@@ -1,21 +1,5 @@
 <section class="posts">
 	<h2 class="hide">Current Posts</h2>
 
-	<% @posts.each do |post| %>
-		<div class="post-row">
-    	<div class="post-row-card">
-      	<div class="post-row-card-content">
-      		<%= render 'post_header', local: { post_title_class: "post-row-card-title", post: post }  %>
-
-					<p><%= display_summary(post) %></p>
-				</div>
-
-				<div class="post-row-card-action">
-					<%= link_to("Read More", post_path(post)) %>
-				</div>
-			</div>
-		</div>
-	<% end %>
-
-	<%= paginate @posts %>
+	<%= render 'post_index', local: { posts: @posts }  %>
 </section>
