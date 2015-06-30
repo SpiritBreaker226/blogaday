@@ -1,6 +1,14 @@
 <section class="materialize-form">
 	<h2><%= @user.full_name %></h2>
 
+	<section>
+		<h3>Feeds</h3>
+		
+		<p>
+			<%= link_to("JSON Feed", feed_user_url(@user, format: :json), target: :blank) %>
+		</p>
+	</section>
+
 	<% if user_author_any_post?(@posts) %>
 		<section>
 			<h3>Postings</h3>
