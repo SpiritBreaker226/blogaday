@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :users, except: [ :index, :new, :show ]
 
   get 'signup'          => 'users#new',               as: :signup
-  get 'myprofile'       => 'users#show',              as: :myprofile
+  get 'profile'         => 'users#show',              as: :profile
   get 'login'           => 'user_sessions#new',       as: :login
   delete 'logout'       => 'user_sessions#destroy',   as: :logout
 
