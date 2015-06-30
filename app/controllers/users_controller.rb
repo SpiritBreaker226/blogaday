@@ -35,6 +35,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @posts = @user.posts.order(id: :desc).page(params[:page])
   end
 
   def destroy

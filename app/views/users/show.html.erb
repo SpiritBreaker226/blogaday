@@ -1,5 +1,11 @@
 <section class="materialize-form">
 	<h2><%= @user.first_name %> <%= @user.last_name %></h2>
 
-	
+	<% if user_author_any_post?(@posts) %>
+		<section>
+			<h3>Postings</h3>
+
+			<%= render 'posts/post_index', local: { posts: @posts }  %>
+		</section>
+	<% end %>
 </section>
