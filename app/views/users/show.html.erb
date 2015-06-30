@@ -7,6 +7,9 @@
 		<p>
 			<%= link_to("JSON Feed", feed_user_url(@user, format: :json), target: :blank) %>
 		</p>
+		<p> 
+			<%= link_to("RSS Feed", feed_user_url(@user, format: :atom), target: :blank) %>
+		</p>
 	</section>
 
 	<% if user_author_any_post?(@posts) %>

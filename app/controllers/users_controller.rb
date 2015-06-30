@@ -45,6 +45,7 @@ class UsersController < ApplicationController
     @posts = User.find(params[:id]).posts.order(id: :desc)
 
     respond_to do |format|
+      format.atom  { render layout: false }
       format.json { render json: @posts }
     end
   end
