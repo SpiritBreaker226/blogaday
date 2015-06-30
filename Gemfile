@@ -46,6 +46,8 @@ gem 'whenever', :require => false
 gem 'colored'
 # markdown render parser
 gem 'github-markdown', '~> 0.6.8'
+# for api serilization
+gem 'active_model_serializers'
 # rails 12 Factor gem for more detail Heroku Logs and better assests mangement
 gem 'rails_12factor', group: :production
 
