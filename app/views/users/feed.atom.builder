@@ -1,4 +1,5 @@
 atom_feed do |feed|
+  feed.title "#{@user.full_name}'s Blog"
   feed.updated @posts.maximum(:created_at)
 
   @posts.each do |post|

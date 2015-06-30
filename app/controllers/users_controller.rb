@@ -42,7 +42,8 @@ class UsersController < ApplicationController
   end
 
   def feed
-    @posts = User.find(params[:id]).posts.order(id: :desc)
+    @user = User.find(params[:id])
+    @posts = @user.posts.order(id: :desc)
 
     respond_to do |format|
       format.atom  { render layout: false }
