@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource except: [:new, :create]
+  load_and_authorize_resource except: [:new, :create, :feed]
 
   def new
     @user = User.new
@@ -39,6 +39,16 @@ class UsersController < ApplicationController
   end
 
   def destroy
+  end
+
+  def feed
+    @user = User.find(params[:id])
+    @posts = @user.posts.order(id: :desc)
+
+    respond_to do |format|
+      format.atom  { render layout: false }
+      format.json { render json: @posts }
+    end
   end
 
   private

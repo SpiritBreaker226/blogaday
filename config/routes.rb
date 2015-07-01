@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
 
   resources :user_sessions, only: [ :create ]
-  resources :users, except: [ :index, :new, :show ]
+  resources :users, except: [ :index, :new, :show ] do
+    get :feed, on: :member
+  end
 
   get 'signup'          => 'users#new',               as: :signup
   get 'profile'         => 'users#show',              as: :profile

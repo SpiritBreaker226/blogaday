@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 	validates :username, uniqueness: true
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
 	def password_blank?
     password.blank?
   end
