@@ -48,6 +48,8 @@ gem 'colored'
 gem 'github-markdown', '~> 0.6.8'
 # for api serilization
 gem 'active_model_serializers'
+# for Cross-Origin Resource Sharing
+gem 'rack-cors', :require => 'rack/cors'
 # rails 12 Factor gem for more detail Heroku Logs and better assests mangement
 gem 'rails_12factor', group: :production
 
