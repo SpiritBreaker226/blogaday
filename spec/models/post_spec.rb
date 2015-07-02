@@ -75,4 +75,16 @@ RSpec.describe Post, type: :model do
       end
     end
   end
+
+  describe "#display_and_order_by_publish_date" do
+    let!(:post) { create(:user_with_posts, num_posts: 25) }
+
+    context "when publish date is nil" do
+      it "return nil" do
+        post_with_publish_date_nil = Post.display_and_order_by_publish_date.find { |post| post.publish_date == nil }
+
+        expect(post_with_publish_date_nil).to be(nil)
+      end
+    end
+  end
 end
