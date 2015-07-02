@@ -86,5 +86,11 @@ RSpec.describe Post, type: :model do
         expect(post_with_publish_date_nil).to be(nil)
       end
     end
+
+    context "when publish date is in the now" do
+      it "return greater then 0" do
+        expect(Post.display_and_order_by_publish_date.count).to be > 0
+      end
+    end
   end
 end
