@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   validates :body, length: { minimum: 250 }
 
   def self.display_and_order_by_publish_date
-    Post.all.where('publish_date IS NOT NULL').where('publish_date <= ?', Time.now)
+    Post.all.where('publish_date IS NOT NULL').where('publish_date <= ?', Time.now).order(publish_date: :desc)
   end
 
   def get_frist_sentence

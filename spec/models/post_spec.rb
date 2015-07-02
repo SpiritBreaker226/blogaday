@@ -102,5 +102,13 @@ RSpec.describe Post, type: :model do
         expect(Post.display_and_order_by_publish_date.where(user: last_user_be_created).count).to be(1)
       end
     end
+
+    context "order by publish_date from latest to oldest" do
+      it "return first post publish date be greater then last post publish date" do
+        posts = Post.display_and_order_by_publish_date
+
+        expect(posts.first.publish_date).to be > posts.last.publish_date
+      end
+    end
   end
 end
