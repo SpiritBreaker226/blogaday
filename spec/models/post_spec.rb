@@ -92,5 +92,15 @@ RSpec.describe Post, type: :model do
         expect(Post.display_and_order_by_publish_date.count).to be > 0
       end
     end
+
+    context "when publish date is only for one user" do
+      let!(:post_different_user) { create(:post, publish_date: 3.days.ago) }
+
+      it "return 1" do
+        last_user_be_created = Post.last.user
+
+        expect(Post.display_and_order_by_publish_date.where(user: last_user_be_created).count).to be(1)
+      end
+    end
   end
 end
