@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
   def feed
     @user = User.find(params[:id])
-    @posts = @user.posts.order(id: :desc)
+    @posts = @user.posts.display_and_order_by_publish_date
 
     respond_to do |format|
       format.atom  { render layout: false }

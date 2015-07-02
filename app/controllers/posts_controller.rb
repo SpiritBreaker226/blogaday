@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Post.all.order(id: :desc).page(params[:page])
+		@posts = Post.display_and_order_by_publish_date.page(params[:page])
 	end
 
 	def new
