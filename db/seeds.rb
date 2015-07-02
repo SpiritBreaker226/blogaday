@@ -26,7 +26,8 @@ user = User.create!(
 50.times do |current_number|
 	user.posts << Post.create!(
 		title: Faker::Hacker.say_something_smart,
-		body: (current_number % 2) == 0 ? Faker::Lorem.paragraphs((8..32).to_a.sample).join("<br><br>") : Faker::Lorem.sentences((16..64).to_a.sample).join(" ")
+		body: (current_number % 2) == 0 ? Faker::Lorem.paragraphs((8..32).to_a.sample).join("<br><br>") : Faker::Lorem.sentences((16..64).to_a.sample).join(" "),
+		publish_date: Faker::Date.between(5.days.ago, 5.days.from_now)
 	)
 
 	5.times { user.posts.last.comments << Comment.create!(body: Faker::Lorem.sentences((8..16).to_a.sample).join(" "), user_id: user.id) }
