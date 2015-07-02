@@ -75,4 +75,40 @@ RSpec.describe Post, type: :model do
       end
     end
   end
+
+  describe "#display_and_order_by_publish_date" do
+    let!(:post) { create(:user_with_posts, num_posts: 25) }
+
+    context "when publish date is nil" do
+      it "return nil" do
+        post_with_publish_date_nil = Post.display_and_order_by_publish_date.find { |post| post.publish_date == nil }
+
+        expect(post_with_publish_date_nil).to be(nil)
+      end
+    end
+
+    context "when publish date is in the now" do
+      it "return greater then 0" do
+        expect(Post.display_and_order_by_publish_date.count).to be > 0
+      end
+    end
+
+    context "when publish date is only for one user" do
+      let!(:post_different_user) { create(:post, publish_date: 3.days.ago) }
+
+      it "return 1" do
+        last_user_be_created = Post.last.user
+
+        expect(Post.display_and_order_by_publish_date.where(user: last_user_be_created).count).to be(1)
+      end
+    end
+
+    context "order by publish_date from latest to oldest" do
+      it "return first post publish date be greater then last post publish date" do
+        posts = Post.display_and_order_by_publish_date
+
+        expect(posts.first.publish_date).to be > posts.last.publish_date
+      end
+    end
+  end
 end

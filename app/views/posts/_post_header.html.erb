@@ -3,7 +3,7 @@
 by <%= local[:post].user.username %>
 <br>
 <i class="post-details-date">
-	<%= time_tag local[:post].created_at, pubdate: true do %>
-		<%= local[:post].created_at.strftime("%B %d, %Y")  %>
+	<%= time_tag local[:post].publish_date, pubdate: true do %>
+		<%= local[:post].publish_date.strftime("%B %d, %Y")  %>
 	<% end %>
 </i>

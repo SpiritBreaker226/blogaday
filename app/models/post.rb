@@ -6,6 +6,10 @@ class Post < ActiveRecord::Base
   validates :summary, length: { maximum: 140 }
   validates :body, length: { minimum: 250 }
 
+  def self.display_and_order_by_publish_date
+    Post.all.where('publish_date IS NOT NULL').where('publish_date <= ?', Time.now).order(publish_date: :desc)
+  end
+
   def get_frist_sentence
   	render_plaintext_body = render_markdown_post_to_html(plaintext_instead: true)
   	first_sentence_end_index = render_plaintext_body.include?(".") ? render_plaintext_body.index('.') : 139
