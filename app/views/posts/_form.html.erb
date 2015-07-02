@@ -25,6 +25,10 @@
 		<%= f.label :summary %>
 	</div>
 
+	<div class="materialize-row-form-one-col">
+		<%= f.datetime_select :publish_date, { ampm: true }, class: "browser-default" %>
+	</div>
+
 	<div class="materialize-row">
 		<div class="materialize-row-form-one-col">
 			<%= f.button "Submit", { class: "materialize-row-form-submit", type: "submit" } %>

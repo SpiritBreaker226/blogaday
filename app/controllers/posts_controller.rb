@@ -57,6 +57,7 @@ class PostsController < ApplicationController
       :title, 
       :body,
       :summary,
+      :publish_date,
       :user_id
     )
   end
