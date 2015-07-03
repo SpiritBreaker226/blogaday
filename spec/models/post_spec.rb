@@ -109,6 +109,13 @@ RSpec.describe Post, type: :model do
 
         expect(posts.first.publish_date).to be > posts.last.publish_date
       end
+
+      it "return first post not be 1 hours from now" do
+        publish_date = 1.hours.from_now
+        create(:post, publish_date: 1.hours.from_now)
+
+        expect(Post.display_and_order_by_publish_date.first.publish_date.hour).not_to be publish_date
+      end
     end
   end
 end
