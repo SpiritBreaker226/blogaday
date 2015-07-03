@@ -3,7 +3,7 @@ class PostSerializer < ActiveModel::Serializer
 
   attributes :title, :body, :summary, :created_at, :url
 
-  belongs_to :user
+  has_one :user
 
   def url
   	post_url(object)
