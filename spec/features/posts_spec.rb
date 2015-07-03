@@ -19,6 +19,9 @@ RSpec.feature "Posts", type: :feature do
         within "#new_post" do
           fill_in "Title", with: Faker::Hacker.say_something_smart
           fill_in "Body", with: Faker::Lorem.characters
+
+          select(3.hours.from_now.strftime("%I %p"), from: :post_publish_date_4i)
+          select(Time.now.strftime("%M"), from: :post_publish_date_5i)
         end
 
         click_submit
@@ -31,6 +34,17 @@ RSpec.feature "Posts", type: :feature do
 
 	  		expect(page.status_code).to be(200)
 	  	end
+
+      it "responds with 200 with publish 3 hours from now" do
+        vist_create_post
+
+        create_proper_post
+
+        latest_post = Post.last
+
+        expect(page.status_code).to be(200)
+        expect(latest_post.publish_date.strftime("%I:%M %p")).to eq(3.hours.from_now.strftime("%I:%M %p"))
+      end
 
       context "with no title & body" do
         it "return back to create" do
