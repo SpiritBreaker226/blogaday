@@ -25,8 +25,11 @@
 		<%= f.label :summary %>
 	</div>
 
-	<div class="materialize-row-form-one-col">
-		<%= f.datetime_select :publish_date, { ampm: true }, class: "browser-default" %>
+	<div class="materialize-row">
+		<%= f.label :publish_date %>
+		<div class="materialize-row-form-one-col">
+			<%= f.datetime_select :publish_date, { ampm: true, order: [:hour, :minute, :month, :day, :year] }, class: "browser-default" %>
+		</div>
 	</div>
 
 	<div class="materialize-row">
