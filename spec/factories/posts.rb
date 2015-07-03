@@ -3,7 +3,7 @@ FactoryGirl.define do
     title 	Faker::Hacker.say_something_smart
 		body 		Faker::Lorem.characters
 		summary Faker::Lorem.sentence
-		publish_date { Faker::Date.between(5.days.ago, 5.days.from_now) }
+		publish_date { Faker::Time.between(5.days.ago, 5.days.from_now) }
 		user
 
 		factory :post_with_comments do
