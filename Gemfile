@@ -50,8 +50,14 @@ gem 'github-markdown', '~> 0.6.8'
 gem 'active_model_serializers'
 # for Cross-Origin Resource Sharing
 gem 'rack-cors', :require => 'rack/cors'
-# rails 12 Factor gem for more detail Heroku Logs and better assests mangement
-gem 'rails_12factor', group: :production
+
+group :production do
+	# rails 12 Factor gem for more detail Heroku Logs and better assests mangement
+	gem 'rails_12factor'
+
+	# adds Heroku Addon Postmark in order to use SMTP on the produciton server
+	gem 'postmark-rails'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
