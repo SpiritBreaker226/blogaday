@@ -43,6 +43,8 @@ Rails.application.configure do
 
   # sets Action Mailer default options
   config.action_mailer.default_options = {from: 'no-reply@blogaday.xyz'}
+  config.action_mailer.delivery_method = :postmark
+  config.action_mailer.postmark_settings = { api_token: ENV['POSTMARK_API_TOKEN'] }
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
