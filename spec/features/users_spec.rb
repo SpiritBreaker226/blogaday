@@ -90,4 +90,23 @@ RSpec.feature "Users", type: :feature do
       end
     end
   end
+
+  describe "#show" do
+    let(:user) { create(:user) }
+
+    subject(:login_and_visit_show_page) do
+      login_user_post(user.username, "Pass3word:")
+
+      visit root_url
+      find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Profile"
+    end
+
+    context "have profile" do
+      it "responds with 200" do
+        login_and_visit_show_page
+
+        expect(page.status_code).to be(200)
+      end
+    end
+  end
 end
