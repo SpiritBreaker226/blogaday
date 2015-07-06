@@ -57,6 +57,9 @@ group :production do
 
 	# adds Heroku Addon Postmark in order to use SMTP on the produciton server
 	gem 'postmark-rails'
+
+	# add New Relic Gem to montior of application from dashboard
+	gem 'newrelic_rpm'
 end
 
 # Use ActiveModel has_secure_password
