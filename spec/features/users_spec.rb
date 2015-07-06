@@ -108,5 +108,15 @@ RSpec.feature "Users", type: :feature do
         expect(page.status_code).to be(200)
       end
     end
+
+    context "display feeds" do 
+      it "responds with JSON format" do
+        login_and_visit_show_page
+
+        click_link "JSON Feed"
+
+        expect(page.current_url.include?(".json")).to be(true)
+      end
+    end
   end
 end
