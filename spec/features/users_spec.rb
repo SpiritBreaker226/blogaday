@@ -90,4 +90,41 @@ RSpec.feature "Users", type: :feature do
       end
     end
   end
+
+  describe "#show" do
+    let(:user) { create(:user) }
+
+    subject(:login_and_visit_show_page) do
+      login_user_post(user.username, "Pass3word:")
+
+      visit root_url
+      find(".main-header-navigation-wrapper-non-mobile-menu").click_link "Profile"
+    end
+
+    context "have profile" do
+      it "responds with 200" do
+        login_and_visit_show_page
+
+        expect(page.status_code).to be(200)
+      end
+    end
+
+    context "display feeds" do 
+      it "responds with JSON format" do
+        login_and_visit_show_page
+
+        click_link "JSON Feed"
+
+        expect(page.current_url.include?(".json")).to be(true)
+      end
+
+      it "responds with RSS format" do
+        login_and_visit_show_page
+
+        click_link "RSS Feed"
+
+        expect(page.current_url.include?(".atom")).to be(true)
+      end
+    end
+  end
 end
