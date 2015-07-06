@@ -42,9 +42,10 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # sets Action Mailer default options
-  config.action_mailer.default_options = {from: 'no-reply@blogaday.xyz'}
+  config.action_mailer.default_options = {from: 'no-reply@jstats-blogaday.herokuapp.com'}
   config.action_mailer.delivery_method = :postmark
   config.action_mailer.postmark_settings = { api_token: ENV['POSTMARK_API_TOKEN'] }
+  config.action_mailer.default_url_options = { host: 'jstats-blogaday.herokuapp.com' }
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
