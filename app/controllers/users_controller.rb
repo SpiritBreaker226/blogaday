@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.order(id: :desc).page(params[:page])
+    @posts = @user.posts.display_and_order_by_publish_date.page(params[:page])
   end
 
   def destroy
