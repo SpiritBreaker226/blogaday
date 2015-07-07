@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   get 'signup'          => 'users#new',               as: :signup
-  get 'profile'         => 'users#show',              as: :profile
+  get 'profile/:id'     => 'users#show',              as: :profile
   get 'login'           => 'user_sessions#new',       as: :login
   delete 'logout'       => 'user_sessions#destroy',   as: :logout
 
