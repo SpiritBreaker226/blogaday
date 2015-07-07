@@ -1,8 +1,8 @@
 <% if current_user %>
   <li><%= link_to("Logout", :logout, method: :delete) %></li>
-  <li><%= link_to("Edit", edit_user_path(current_user.id)) %></li>
+  <li><%= link_to("Edit", edit_user_path(current_user)) %></li>
   <li><%= link_to("Create Post", new_post_path) %></li>
-  <li><%= link_to("Profile", :profile) %></li>
+  <li><%= link_to("Profile", profile_path(current_user)) %></li>
 <% else %>
   <li><%= link_to("Sign Up", :signup) %></li>
   <li><%= link_to("Login", :login) %></li>

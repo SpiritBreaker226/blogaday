@@ -1,6 +1,6 @@
 <h4 class="<%= local[:post_title_class] %>"><%= local[:post].title %></h4>
 
-by <%= local[:post].user.username %>
+by <%= link_to(local[:post].user.username, profile_path(local[:post].user)) %>
 <br>
 <i class="post-details-date">
 	<%= time_tag local[:post].publish_date, pubdate: true do %>
