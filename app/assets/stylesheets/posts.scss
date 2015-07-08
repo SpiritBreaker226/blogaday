@@ -76,3 +76,18 @@
 	display: initial;
 	width: initial;
 }
+
+.search-form {
+	.search-form-two-col {
+		@extend .input-field;
+		@extend .col;
+	}
+
+	.search-form-two-col-textbox {
+		@extend .s10;
+	}
+
+	.search-form-two-col-submit {
+		@extend .s2;
+	}
+}
