@@ -1,6 +1,15 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Post.display_and_order_by_publish_date.page(params[:page])
+		@posts = if params[:search] 
+      Post.display_and_order_by_publish_date.where("LOWER(title) LIKE LOWER(?)", "%#{params[:search]}%").page(params[:page])
+    else
+      Post.display_and_order_by_publish_date.page(params[:page])
+    end
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
 	end
 
 	def new
