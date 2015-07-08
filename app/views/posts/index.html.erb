@@ -1,7 +1,12 @@
 <section>
 	<h2 class="hide">Current Posts</h2>
 
+	<%= form_tag posts_path, method: :get, athentication: false, id: "search-form", class: "materialize-row-form" do %>
+		<%= text_field_tag :search, params[:search], placeholder: "search for any post title" %>
+		<%= button_tag "Search", { class: "materialize-row-form-submit", type: "submit" } %>
+	<% end %>
+
 	<div class="posts">
-		<%= render 'post_index', local: { posts: @posts }  %>
+		<%= render 'post_index', local: { posts: @posts } %>
 	</div>
 </section>
