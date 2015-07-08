@@ -5,6 +5,11 @@ class PostsController < ApplicationController
     else
       Post.display_and_order_by_publish_date.page(params[:page])
     end
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
 	end
 
 	def new
