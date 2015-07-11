@@ -109,6 +109,9 @@ group :development, :test do
 	# guard server
 	gem 'guard-bundler', require: false
 
+	# keeps an eye on any changes in the view and reloads the page using the guard server
+	gem 'guard-livereload', '~> 2.4', require: false
+
 	# cleans the database after each test
 	gem 'database_cleaner', '~> 1.4.1'
 
