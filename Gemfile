@@ -105,6 +105,10 @@ group :development, :test do
 	# keeps an eye on any changes to the file in the application and runs rspec
 	gem 'guard-rspec', require: false
 
+	# keeps an eye on any chanages to this file and runds bundler automaticlly using the 
+	# guard server
+	gem 'guard-bundler', require: false
+
 	# cleans the database after each test
 	gem 'database_cleaner', '~> 1.4.1'
 
