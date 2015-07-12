@@ -102,6 +102,16 @@ group :development, :test do
 	# create fake objects to test
 	gem 'factory_girl_rails'
 
+	# keeps an eye on any changes to the file in the application and runs rspec
+	gem 'guard-rspec', require: false
+
+	# keeps an eye on any chanages to this file and runds bundler automaticlly using the 
+	# guard server
+	gem 'guard-bundler', require: false
+
+	# keeps an eye on any changes in the view and reloads the page using the guard server
+	gem 'guard-livereload', '~> 2.4', require: false
+
 	# cleans the database after each test
 	gem 'database_cleaner', '~> 1.4.1'
 
@@ -120,4 +130,3 @@ group :development, :test do
   # opens emails in the browser
   gem "letter_opener"
 end
-
