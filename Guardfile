@@ -41,7 +41,7 @@ guard 'livereload' do
   watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html|png|jpg))).*}) { |m| "/assets/#{m[3]}" }
 end
 
-guard :rspec, cmd: "bundle exec rspec" do
+guard :rspec, cmd: "bundle exec rspec -f d" do
   require "guard/rspec/dsl"
   dsl = Guard::RSpec::Dsl.new(self)
 
